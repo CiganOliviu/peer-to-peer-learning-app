@@ -1,0 +1,125 @@
+.ScrollerIntro {
+    margin-top: 40%;
+}
+
+.Scroller {
+    margin-top: 190%;
+}
+
+.HeroContainer {
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-attachment: fixed;
+    color: #fff;
+}
+
+.HeroContainer .SmallPadding {
+    padding: 2%;
+}
+
+.HeroContainer .WelcomeMessage {
+    position: absolute;
+    top: 40%;
+    text-align: center;
+    background: #000;
+    opacity: 0.88;
+    width: 100%;
+    padding: 2%;
+}
+
+.HeroContainer .WelcomeMessage > h1 {
+    font-size: 50px;
+}
+
+.HeroContainer .WelcomeMessage > p {
+    font-size: 25px;
+}
+
+.HeroContainer .HeroButtons {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.HeroContainer .HeroButtons .NavigationButtons {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    outline: none;
+    border-radius: 5px;
+    border: none;
+    padding: 10px 20px;
+    color: #fff;
+    transition: background-color;
+    transition-duration: 0.7s;
+    text-decoration: none;
+}
+
+.HeroContainer .HeroButtons #MoreInfoButton {
+    background-color: #bd1616;
+    margin-left: 1%;
+}
+
+.HeroContainer .HeroButtons #MoreInfoButton:hover {
+    background-color: #e03f3f;
+}
+
+.HeroContainer .HeroButtons #LoginButton {
+    margin-left: 1%;
+    background-color: #1c85e0;
+}
+
+.HeroContainer .HeroButtons #LoginButton:hover {
+    background-color: #174c71;
+}
+
+@media (max-width: 767px) {
+
+    .ScrollerIntro {
+        margin-top: 200%;
+    }
+
+    .Scroller {
+        margin-top: 1060%;
+    }
+
+    .HeroContainer {
+        min-height: 20vw;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1200px) {
+
+    .ScrollerIntro {
+        margin-top: 60%;
+    }
+
+    .Scroller {
+        margin-top: 300%;
+    }
+
+    .HeroContainer {
+        min-height: 400px;
+    }
+}
+
+@media (max-width: 756px) {
+
+    .HeroContainer .SmallPadding {
+        padding: 8%;
+    }
+
+    .HeroContainer .WelcomeMessage {
+        top: 35%;
+    }
+
+    .HeroContainer .WelcomeMessage h1 {
+        font-size: 30px;
+    }
+
+    .HeroContainer .WelcomeMessage p {
+        font-size: 20px;
+    }
+}

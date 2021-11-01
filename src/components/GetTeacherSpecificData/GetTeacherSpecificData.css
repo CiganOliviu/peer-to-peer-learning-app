@@ -1,0 +1,63 @@
+.TeacherDetails img {
+    width: 40%;
+    border-radius: 5%;
+}
+
+.TeacherDetails {
+    padding: 3%;
+    text-align: center;
+}
+
+.TeacherDetails .Cell {
+    text-align: left;
+}
+
+.ShineMessage {
+    color: rgba(255, 0, 0, 0.849);
+}
+
+.ShineMessageLink {
+    color: rgba(255, 0, 0, 0.849);
+    text-decoration: none;
+    transition: all 500ms ease;
+    font-size: 25px;
+}
+
+.ShineMessageLink:hover {
+    color: #fff;
+    transition: all 500ms ease;
+}
+
+.TeacherDetails .Cell p {
+    padding: 1%;
+}
+
+.TeacherDetails h1 {
+    padding: 1%;
+}
+
+@media (min-width: 768px) and (max-width: 1100px) {
+
+    .TeacherDetails img {
+        width: 60%;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .TeacherDetails {
+        padding-top: 4%;
+    }
+
+    .TeacherDetails img {
+        width: 50%;
+    }
+
+    .TeacherDetails h1 {
+        padding: 1%;
+    }
+
+    .ShineMessageLink {
+        font-size: 22px;
+    }
+}

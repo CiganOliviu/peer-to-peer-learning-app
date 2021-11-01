@@ -1,0 +1,17 @@
+.Schedules {
+    padding: 5%;
+}
+
+.Schedules h1 {
+    padding: 2%;
+}
+
+@media (max-width: 768px) {
+    .Schedules {
+        padding-top: 15%;
+    }
+
+    .Schedules h1 {
+        padding: 4%;
+    }
+}

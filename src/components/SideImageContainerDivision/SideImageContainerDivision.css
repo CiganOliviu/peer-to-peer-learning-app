@@ -1,0 +1,56 @@
+.FlexContainer {
+    display: flex;
+}
+
+.FlexContainer .FlexChild {
+    width: 100%;
+    flex: 0.5;
+    padding: 4%;
+}
+
+.FlexContainer .FlexChild .LeftSideImage img {
+    width: 70%;
+    display: block;
+    margin-left: auto;
+    margin-right: 0;
+}
+
+.FlexContainer .FlexChild .RightSideImage img {
+    width: 70%;
+    display: block;
+    margin-right: auto;
+    margin-left: 0;
+}
+
+.FlexContainer .Text {
+    margin-left: 0;
+    font-size: 20px;
+}
+
+.FlexContainer h2 {
+    font-size: 40px;
+}
+
+.FlexContainer p {
+    font-size: 20px;
+}
+
+@media (max-width: 756px) {
+
+    .FlexContainer {
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+
+    .FlexContainer .FlexChild .LeftSideImage img {
+        width: 100%;
+    }
+
+    .FlexContainer .FlexChild .RightSideImage img {
+        width: 100%;
+    }
+
+    .FlexContainer h2 {
+        font-size: 28px;
+    }
+}

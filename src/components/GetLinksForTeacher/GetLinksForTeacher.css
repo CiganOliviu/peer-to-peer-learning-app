@@ -1,0 +1,11 @@
+.DataForTeacher {
+    padding: 2%;
+    margin-top: 10%;
+}
+
+@media (max-width: 768px) {
+
+    .DataForTeacher {
+        margin-top: 0;
+    }
+}

@@ -1,0 +1,161 @@
+.LoginSys {
+    padding-top: 10%;
+    position: relative;
+    height: 100vh;
+    background: url('https://images.pexels.com/photos/2150/sky-space-dark-galaxy.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260') center no-repeat;
+    background-size: cover;
+    text-align: center;
+}
+
+.Form {
+    padding: 2%;
+    background: rgba(0, 0, 0, 0.85);
+    width: 40%;
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: 2%;
+}
+
+.Form input {
+    padding: 2.2%;
+    width: 50%;
+    border-radius: 1rem;
+    border: 1px solid #f2f2f2;
+    outline: none;
+    font-size: 16px;
+}
+
+.Form textarea {
+    padding: 2.2%;
+    width: 50%;
+    border-radius: 1rem;
+    border: 1px solid #f2f2f2;
+    outline: none;
+    font-size: 16px;
+}
+
+.Form select {
+    padding: 2.2%;
+    width: 50%;
+    border-radius: 1rem;
+    border: 1px solid #f2f2f2;
+    outline: none;
+    font-size: 16px;
+}
+
+.Form button {
+    padding: 2%;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 1rem;
+    color: #fff;
+}
+
+.Form .Active {
+    background: #0072b1;
+    transition: all 300ms ease;
+    border: 3px solid #0072b1;
+}
+
+.Form .Active:hover {
+    background: #0073b1bb;
+    border: 3px solid #0073b1bb;
+    transition: all 300ms ease;
+}
+
+.Form .BorderedButton {
+    background: rgba(176, 17, 17, 0.85);
+    border: 3px solid rgba(176, 17, 17, 0.85);
+    transition: all 500ms ease;
+}
+
+.Form .BorderedButton:hover {
+    border: 3px solid #0072b1;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex button {
+    margin: 4%;
+    width: 60%;
+}
+
+.Padding {
+    padding: 2%;
+}
+
+.Error {
+    color: red;
+    background: transparent;
+}
+
+@media (max-width: 1024px) and (min-width: 769px) {
+
+    .Form {
+        background: #000;
+        width: 70%;
+    }
+
+    .Form input {
+        width: 80%;
+        padding: 3%;
+        font-size: 22px;
+    }
+
+    .Form textarea {
+        width: 80%;
+        padding: 3%;
+        font-size: 22px;
+    }
+
+    .Form select {
+        width: 80%;
+        padding: 3%;
+        font-size: 22px;
+    }
+
+    .Form button {
+        font-size: 22px;
+    }
+
+    .Padding {
+        padding: 3%;
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    .LoginSys {
+        padding-top: 30%;
+    }
+
+    .Form {
+        background: #000;
+        width: 80%;
+    }
+
+    .Form input {
+        width: 80%;
+        padding: 3%;
+    }
+
+    .Form textarea {
+        width: 80%;
+        padding: 3%;
+    }
+
+    .Form select {
+        width: 80%;
+        padding: 3%;
+    }
+
+    .Padding {
+        padding: 3%;
+    }
+}

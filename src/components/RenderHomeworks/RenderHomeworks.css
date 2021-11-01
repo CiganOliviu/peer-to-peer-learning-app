@@ -1,0 +1,20 @@
+.Homework {
+    padding: 2%;
+}
+
+.Homework h2 {
+    padding: 2%;
+    color: red;
+}
+
+.HomeworkBorder {
+    width: 80%;
+    height: 1px;
+    background: #fff;
+}
+
+@media (max-width: 768px) {
+    .Homework {
+        padding: 4%;
+    }
+}

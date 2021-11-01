@@ -1,0 +1,24 @@
+.ScrollButton {
+    position: fixed;
+    width: 60px;
+    left: 95%;
+    bottom: 40px;
+    height: 60px;
+    font-size: 3rem;
+    z-index: 1000;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.75);
+    text-align: center;
+    border-radius: 25%;
+    transition: all 500ms ease;
+}
+
+.ScrollButton:hover {
+    color: rgba(255, 0, 0, 0.849);
+}
+
+@media (max-width: 1500px) {
+    .ScrollButton {
+        visibility: hidden;
+    }
+}
