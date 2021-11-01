@@ -1,12 +1,12 @@
 import React from 'react'
-import { stagingBaseUrl } from "../../utils/baseUrls";
+import { apiBaseURL } from "../../utils/baseUrls";
 import './GetTeacherSpecificData.css'
 
 function GetTeacherSpecificData({ teacher }) {
 
     return (
         <div className="TeacherDetails">
-            <img src={`${stagingBaseUrl}${ teacher?.profile}`} alt={`${teacher?.first_name} 
+            <img src={`${apiBaseURL}${ teacher?.profile}`} alt={`${teacher?.first_name} 
             ${teacher?.last_name}`} />
 
             <div>&nbsp;</div>

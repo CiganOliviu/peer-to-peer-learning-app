@@ -1,11 +1,11 @@
-import { stagingBaseUrl } from "./baseUrls";
+import { apiBaseURL } from "./baseUrls";
 
-const baseMathematicsURL = `${stagingBaseUrl}/mathematics`;
-const baseRomanianURL = `${stagingBaseUrl}/romanian`;
-const baseInformaticsURL = `${stagingBaseUrl}/informatics`;
-const baseLoginURL = `${stagingBaseUrl}/details/login/`;
-const baseStatsURL = `${stagingBaseUrl}/stats`;
-const BaseAPIDependencies = `${stagingBaseUrl}/app-dependencies`;
+const baseMathematicsURL = `${apiBaseURL}/mathematics`;
+const baseRomanianURL = `${apiBaseURL}/romanian`;
+const baseInformaticsURL = `${apiBaseURL}/informatics`;
+const baseLoginURL = `${apiBaseURL}/details/login/`;
+const baseStatsURL = `${apiBaseURL}/stats`;
+const BaseAPIDependencies = `${apiBaseURL}/app-dependencies`;
 
 const requests = {
 

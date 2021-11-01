@@ -3,7 +3,7 @@ import { useCustomFetchHeroCard } from '../../utils/apiCalls'
 import { Link } from 'react-router-dom';
 import { getUserInfoParse } from "../../utils/localStorage";
 import { scrollToRef } from "../../utils/refScroller";
-import { stagingBaseUrl } from "../../utils/baseUrls";
+import { apiBaseURL } from "../../utils/baseUrls";
 
 import "aos/dist/aos.css"
 import './HeroCard.css'
@@ -30,7 +30,7 @@ function HeroCard({ introRef, contactRef }) {
     const executeScrollContact = () => scrollToRef(contactRef);
 
     return (
-        <div className="HeroContainer" style={{backgroundImage: `url(${stagingBaseUrl}${heroCardDetails?.image})`}}>
+        <div className="HeroContainer" style={{backgroundImage: `url(${apiBaseURL}${heroCardDetails?.image})`}}>
             <div className="SmallPadding">
 
             </div>

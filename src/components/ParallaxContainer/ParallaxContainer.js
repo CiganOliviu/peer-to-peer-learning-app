@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from "react-router-dom";
 import { useCustomFetchHeroCard } from "../../utils/apiCalls";
-import { stagingBaseUrl } from "../../utils/baseUrls";
+import { apiBaseURL } from "../../utils/baseUrls";
 import './ParallaxContainer.css'
 
 function ParallaxContainer() {
@@ -19,7 +19,7 @@ function ParallaxContainer() {
     }, [apiDataHeroCard, serverErrorHeroCard])
 
     return (
-        <div className="ParallaxContainer" style={{backgroundImage: `url(${stagingBaseUrl}${heroCardDetails?.image})`}}>
+        <div className="ParallaxContainer" style={{backgroundImage: `url(${apiBaseURL}${heroCardDetails?.image})`}}>
             <div data-aos="fade-in" className='ParallaxBackground'>
                 <div className='Gradient'>
                     <h1>Ready for the future of teaching?</h1>
