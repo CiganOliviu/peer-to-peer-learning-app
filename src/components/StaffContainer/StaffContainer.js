@@ -5,9 +5,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons'
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { ExternalLink  } from "react-external-link";
-
+import { apiBaseURL } from "../../utils/baseUrls";
 import './StaffContainer.css'
-
 
 function StaffContainer() {
 
@@ -32,7 +31,7 @@ function StaffContainer() {
                         <div className="FlexChild" data-aos="zoom-in">
                             <div className="OurTeam" onClick={() =>
                             { history.push(`teacher-detail/${ data?.id }`) }} >
-                                <img src={`http://localhost:8000${ data?.profile}`} alt={ data?.profile }/>
+                                <img src={`${apiBaseURL}${ data?.profile}`} alt={ data?.profile }/>
                                 <div className="TeamContent">
                                     <h3 className="Name">{ data?.first_name } {data?.last_name}</h3>
                                     <span className="Post">{ data?.preview }</span>
