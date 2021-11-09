@@ -151,7 +151,7 @@ function UserPage() {
                         })
                     }
                     <div>&nbsp;</div>
-                    <h1 style={{ padding: '2%', }}>Your Path</h1>
+                    <h1 style={{ padding: '2%', }}>Your Goals</h1>
                     {
                         teacherExpectations?.map((data) => {
                             return (
