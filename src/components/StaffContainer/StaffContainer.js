@@ -41,12 +41,12 @@ function StaffContainer() {
                             <div className="social-details">
                                 <div className="FlexContainerLink">
                                     <div className="FlexChildLink">
-                                        <ExternalLink id="faLinkedin" href="https://linkedin.com">
+                                        <ExternalLink id="faLinkedin" href={ data?.linkedin_url }>
                                             <FontAwesomeIcon key='faLinkedin' icon={ faLinkedin } />
                                         </ExternalLink>
                                     </div>
                                     <div className="FlexChildLink">
-                                        <ExternalLink id="faEnvelope" href="https://gmail.com">
+                                        <ExternalLink id="faEnvelope" href={ data?.email_url }>
                                             <FontAwesomeIcon key='faEnvelope' icon={ faEnvelope } />
                                         </ExternalLink>
                                     </div>
