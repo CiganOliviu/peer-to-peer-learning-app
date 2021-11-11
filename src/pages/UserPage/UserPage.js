@@ -12,9 +12,7 @@ import GetClientSpecificData from "../../components/GetClientSpecificData/GetCli
 import GetTeacherSpecificData from "../../components/GetTeacherSpecificData/GetTeacherSpecificData";
 import GetLinksForTeacher from "../../components/GetLinksForTeacher/GetLinksForTeacher";
 import DisplayExpectations from "../../components/DisplayExpectations/DisplayExpectations";
-
 import './UserPage.css'
-
 
 function UserPage() {
 

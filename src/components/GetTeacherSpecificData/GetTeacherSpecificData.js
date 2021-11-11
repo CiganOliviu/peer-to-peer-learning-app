@@ -4,6 +4,9 @@ import './GetTeacherSpecificData.css'
 
 function GetTeacherSpecificData({ teacher }) {
 
+    const teacherDescription = teacher?.description ?? '';
+    teacherDescription.replace(/(?:\r\n|\r|\n)/g, '<br />');
+
     return (
         <div className="TeacherDetails">
             <img src={`${apiBaseURL}${ teacher?.profile}`} alt={`${teacher?.first_name} 
@@ -29,7 +32,16 @@ function GetTeacherSpecificData({ teacher }) {
             </div>
             <div className="Cell">
                 <p className="ShineMessage"><b>Description</b></p>
-                <p>{ teacher?.description }</p>
+                {
+                    teacherDescription.split('\n').map(function(item, key) {
+                        return (
+                            <span key={key}>
+                                <p>{ item }</p>
+                                <br/>
+                        </span>
+                        )
+                    })
+                }
             </div>
             <div className="Cell">
                 <p className="ShineMessage"><b>Short description</b></p>

@@ -1,1 +1,1 @@
-export const apiBaseURL = 'https://ptpcc.azurewebsites.net'
+export const apiBaseURL = 'https://ptpcc.azurewebsites.net';
