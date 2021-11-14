@@ -32,7 +32,7 @@ function ContainerLeftSideImage({ iphone }) {
                     Ce inseamna pentru noi, ONLINE?
                 </p>
                 <ul style={{ padding: '3%' }}>
-                    <li>Optimizarea si customizarea modului și metodelor de lucru.</li>
+                    <li>Optimizarea si customizarea modului si metodelor de lucru.</li>
                     <li>Eficientizarea timpului.</li>
                     <li>Transformarea dorintelor/visurilor in actiuni.</li>
                     <li>Placere de a invata.</li>
