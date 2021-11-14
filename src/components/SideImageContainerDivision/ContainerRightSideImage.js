@@ -12,7 +12,7 @@ function ContainerLeftSideImage({ mac }) {
                 <div>&nbsp;</div>
                 <p>
                     Toti elevii din Romania au avut nevoie sa se obisnuiasca cu mediul online din cauza pandemiei.
-                    Datorita acestui lucru, putem crea un mediu cat mai familiar și prietenos, astfel fiecare poate sa invete de
+                    Datorita acestui lucru, putem crea un mediu cat mai familiar si prietenos, astfel fiecare poate sa invete de
                     la fiecare.
                 </p>
                 <br/>
