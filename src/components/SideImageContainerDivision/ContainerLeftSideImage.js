@@ -18,25 +18,24 @@ function ContainerLeftSideImage({ iphone }) {
                 <h2><b>Ce inseamna ONLINE?</b></h2>
                 <div>&nbsp;</div>
                 <p>
-                    Privind printr-un spectru pozitiv, pandemia a oferit oportunitatea de a introduce și rezona cu
-                    mediul de educație online. Noi îți oferim posibilitatea de a te dezvolta într-o ambianță familiară,
-                    prietenoasă, unde fiecare poate învăța de la fiecare.
+                    Privind printr-un spectru pozitiv, pandemia a oferit oportunitatea de a introduce si rezona cu
+                    mediul de educatie online. Noi iti oferim posibilitatea de a te dezvolta intr-o ambianta familiara,
+                    prietenoasa, unde fiecare poate invata de la fiecare.
                 </p>
                 <br/>
                 <p>
-                    Cu o echipă formată
-                    din tineri studenți, scopul nostru este de a transmite mai departe informația, beneficiind
-                    de o atmosferă cât mai relaxată.
+                    Cu o echipa formata din tineri studenti, scopul nostru este de a transmite mai departe informatia,
+                    beneficiind de o atmosfera cat mai relaxata.
                 </p>
                 <br/>
                 <p>
-                    Ce înseamnă pentru noi, ONLINE?
+                    Ce inseamna pentru noi, ONLINE?
                 </p>
                 <ul style={{ padding: '3%' }}>
-                    <li>Optimizarea și customizarea modului și metodelor de lucru.</li>
+                    <li>Optimizarea si customizarea modului și metodelor de lucru.</li>
                     <li>Eficientizarea timpului.</li>
-                    <li>Transformarea dorințelor/visurilor în acțiuni.</li>
-                    <li>Plăcere de a învăța.</li>
+                    <li>Transformarea dorintelor/visurilor in actiuni.</li>
+                    <li>Placere de a invata.</li>
                 </ul>
             </div>
         </div>
