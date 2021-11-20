@@ -3,7 +3,7 @@ import ContainerLeftSideImage from "../../components/SideImageContainerDivision/
 import ContainerRightSideImage from "../../components/SideImageContainerDivision/ContainerRightSideImage";
 import ThreeImagesContainer from "../../components/ThreeImagesContainer/ThreeImagesContainer";
 import ParallaxContainer from "../../components/ParallaxContainer/ParallaxContainer";
-import StaffContainer from "../../components/StaffContainer/StaffContainer";
+import HomeStaffContainerSection from "../../components/StaffContainer/HomeStaffContainerSection/HomeStaffContainerSection";
 
 import iphonePresentation from './Images/iphonePresentation.png'
 import macPresentation from './Images/macPresentation.png'
@@ -50,7 +50,7 @@ function HomePage() {
             <ParallaxContainer />
             <div className="BreathingSpaceSmall" />
             <div className="GrayWallpaper" ref = { contactRef }>
-                <StaffContainer />
+                <HomeStaffContainerSection />
             </div>
 
             <div className="SpaceForPhone"/>

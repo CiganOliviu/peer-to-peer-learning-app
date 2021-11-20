@@ -1,11 +1,9 @@
 import React from 'react'
 import { BrowserRouter as Router, Switch, Route, BrowserRouter } from 'react-router-dom';
-
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import ScrollTopButton from "./components/ScrollTopButton/ScrollTopButton";
 import ErrorBoundary from "./components/BoundaryError/BoundaryError";
-
 import HomePage from "./pages/HomePage/HomePage"
 import DocxPage from "./pages/DocxPage/DocxPage";
 import Error404Page from "./pages/Error404Page/Error404Page";
@@ -15,9 +13,8 @@ import SchedulePage from "./pages/SchedulePage/SchedulePage";
 import TeachersDetailPage from "./pages/TeachersDetailPage/TeachersDetailPage";
 import UserPage from "./pages/UserPage/UserPage";
 import Feedback from "./pages/Feedback/Feedback";
-
+import OurTeamPage from "./pages/OurTeamPage/OurTeamPage";
 import './App.css';
-
 
 function App() {
     return (
@@ -35,6 +32,11 @@ function App() {
                            <Route path="/docx" exact>
                                <Header />
                                <DocxPage />
+                               <Footer />
+                           </Route>
+                           <Route path="/our-team" exact>
+                               <Header />
+                               <OurTeamPage />
                                <Footer />
                            </Route>
                            <Route path="/homeworks" exact>

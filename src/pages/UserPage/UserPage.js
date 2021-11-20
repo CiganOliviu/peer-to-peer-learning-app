@@ -101,6 +101,8 @@ function UserPage() {
     if (!userInfo)
         return <Redirect to="/login"/>
 
+    let index = 0;
+
     return (
         <div className="UserPage" >
             <div className="FlexContainer">
@@ -152,18 +154,24 @@ function UserPage() {
                     <h1 style={{ padding: '2%', }}>Your Goals</h1>
                     {
                         teacherExpectations?.map((data) => {
+
+                            index = userInfo.user.email === data.teacher.email && data.done === false ? index += 1 : index;
+
                             return (
                                 <div>
-                                    { userInfo.user.email === data.teacher.email && data.done === false ? <DisplayExpectations data={ data } /> : "" }
+                                    { userInfo.user.email === data.teacher.email && data.done === false ? <DisplayExpectations index = { index } data={ data } /> : <></> }
                                 </div>
                             );
                         })
                     }
                     {
                         studentExpectations?.map((data) => {
+
+                            index = userInfo.user.email === data.student.email && data.done === false ? index += 1 : index;
+
                             return (
                                 <div>
-                                    { userInfo.user.email === data.student.email && data.done === false ? <DisplayExpectations data={ data } /> : "" }
+                                    { userInfo.user.email === data.student.email && data.done === false ? <DisplayExpectations data={ data } /> : <></> }
                                 </div>
                             );
                         })

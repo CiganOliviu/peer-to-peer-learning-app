@@ -1,11 +1,13 @@
 .FlexContainer {
     display: flex;
+    flex-wrap: wrap;
 }
 
 .FlexContainer .FlexChild {
+    flex-grow: 1;
     width: 100%;
-    flex: 0.5;
     padding: 4%;
+    flex-basis: 33.3%;
 }
 
 .FlexContainer .FlexChild .LeftSideImage img {

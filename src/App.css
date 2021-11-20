@@ -23,8 +23,18 @@ p {
     padding: 4%;
 }
 
+.BreathingSpaceHuge {
+    padding: 8%;
+}
+
 @media (max-width: 768px) {
     .SpaceForPhone {
+        padding: 8%;
+    }
+}
+
+@media (min-width: 768px) {
+    .SpaceForLargeBreakPoint {
         padding: 8%;
     }
 }

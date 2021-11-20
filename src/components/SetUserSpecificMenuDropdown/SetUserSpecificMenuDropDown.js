@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSignInAlt, faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
 import { Link } from "react-router-dom";
 
-
 function SetUserSpecificMenuDropDown({userInfo, logOut}) {
 
     if (userInfo)
@@ -13,6 +12,7 @@ function SetUserSpecificMenuDropDown({userInfo, logOut}) {
                 <div className="DelimitationBorder"/>
                 <Link to="/user">About me</Link>
                 <Link to="/feedback">Feedback</Link>
+                <Link to="/our-team">PTP Team</Link>
                 <Link to="/login" onClick={ logOut }><FontAwesomeIcon key='Logout' icon={ faSignOutAlt } /> logout</Link>
             </div>
         );

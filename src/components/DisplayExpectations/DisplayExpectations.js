@@ -1,13 +1,13 @@
 import React from 'react'
 
-function DisplayExpectations({ data }) {
+function DisplayExpectations({ index, data }) {
 
     const textLog = data?.log
     textLog.replace(/(?:\r\n|\r|\n)/g, '<br />');
 
     return (
         <div className="DisplayExpectations">
-                <p className="ShineMessage"><b>{ data?.id }. { data?.title }</b></p>
+                <p className="ShineMessage"><b>{ index }. { data?.title }</b></p>
                 <div>&nbsp;</div>
                 {
                     textLog.split('\n').map(function(item, key) {

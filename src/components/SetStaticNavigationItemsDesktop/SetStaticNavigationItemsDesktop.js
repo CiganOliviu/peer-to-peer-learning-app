@@ -1,6 +1,5 @@
 import React from 'react'
-import {Link, useLocation} from 'react-router-dom'
-
+import { Link, useLocation } from 'react-router-dom'
 
 function SetStaticNavigationItemsDesktop({ userInfo }) {
 
@@ -17,6 +16,7 @@ function SetStaticNavigationItemsDesktop({ userInfo }) {
     else
         staticItems = [
             {label: 'Docx', route: '/docx'},
+            {label: 'Team', route: '/our-team'}
         ]
 
     return staticItems.map((item) => {

@@ -13,7 +13,7 @@ function DocxPage() {
     if (userInfo)
         return (
             <div>
-                <br/><br/><br/>
+                <div className="BreathingSpaceSmall" />
                 <GetPremiumContent />
                 <div className="SpaceForPhone"/>
             </div>
@@ -21,7 +21,7 @@ function DocxPage() {
 
     return (
         <div>
-            <br/><br/><br/>
+            <div className="BreathingSpaceSmall" />
             <GetFreeContent />
             <div className="SpaceForPhone"/>
         </div>

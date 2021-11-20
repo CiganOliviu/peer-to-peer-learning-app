@@ -23,8 +23,8 @@ function ParallaxContainer() {
             <div data-aos="fade-in" className='ParallaxBackground'>
                 <div className='Gradient'>
                     <h1>Ready for the future of teaching?</h1>
-                    <Link to="docx/" className="NavigationButtons" id="MoreInfoButton">
-                        Read more!
+                    <Link to="our-team/" className="NavigationButtons" id="MoreInfoButton">
+                        Get in touch with our team!
                     </Link>
                 </div>
             </div>

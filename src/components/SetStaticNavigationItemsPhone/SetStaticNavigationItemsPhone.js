@@ -1,7 +1,11 @@
 import React from 'react'
 import {Link, useLocation} from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHome, faBook, faCalendarAlt, faScroll } from '@fortawesome/free-solid-svg-icons'
+import { faHome,
+        faBook,
+        faCalendarAlt,
+        faScroll,
+        faUserCog } from '@fortawesome/free-solid-svg-icons'
 
 
 function SetStaticNavigationItemsPhone({ userInfo }) {
@@ -30,11 +34,13 @@ function SetStaticNavigationItemsPhone({ userInfo }) {
         staticItems = [
             { label: 'Home', route: '/'},
             { label: 'Docx', route: '/docx' },
+            { label: 'Staff', route: '/our-team' },
         ]
 
         menuIcons = [
             [ <FontAwesomeIcon key='Home' icon={ faHome }/> ],
             [ <FontAwesomeIcon key='Book' icon={ faBook }/> ],
+            [ <FontAwesomeIcon key='User' icon={ faUserCog } /> ],
         ]
     }
 

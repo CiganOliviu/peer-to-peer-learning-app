@@ -16,7 +16,6 @@ import schedule from './Images/schedule.jpeg'
 import './Schedule.css'
 import { Redirect } from "react-router-dom";
 
-
 function SchedulePage() {
 
     const userInfo = getUserInfoParse();
