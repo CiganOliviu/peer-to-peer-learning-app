@@ -10,11 +10,11 @@
     flex-basis: 33.3%;
 }
 
-.FlexContainer .FlexChild .LeftSideImage img {
-    width: 70%;
+.FlexContainer .FlexChild .LeftSideImage video {
+    width: 60%;
     display: block;
     margin-left: auto;
-    margin-right: 0;
+    margin-right: auto;
 }
 
 .FlexContainer .FlexChild .RightSideImage img {
@@ -44,7 +44,7 @@
         flex-wrap: wrap;
     }
 
-    .FlexContainer .FlexChild .LeftSideImage img {
+    .FlexContainer .FlexChild .LeftSideImage video {
         width: 100%;
     }
 

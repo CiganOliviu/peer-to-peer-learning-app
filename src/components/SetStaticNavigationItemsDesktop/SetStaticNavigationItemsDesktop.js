@@ -5,19 +5,20 @@ function SetStaticNavigationItemsDesktop({ userInfo }) {
 
     const location = useLocation();
 
-    let staticItems;
+    const activeUserMenu = [
+        { label: 'Homeworks', route: '/homeworks' },
+        { label: 'Docx', route: '/docx' },
+        { label: 'Schedule', route: '/schedule' },
+        { label: 'Contact', route: '/contact' },
+    ]
 
-    if (userInfo)
-        staticItems = [
-            {label: 'Homeworks', route: '/homeworks'},
-            {label: 'Docx', route: '/docx'},
-            {label: 'Schedule', route: '/schedule'},
-        ]
-    else
-        staticItems = [
-            {label: 'Docx', route: '/docx'},
-            {label: 'Team', route: '/our-team'}
-        ]
+    const inactiveUserMenu = [
+        { label: 'Docx', route: '/docx' },
+        { label: 'Teachers', route: '/our-teachers' },
+        { label: 'Contact', route: '/contact' },
+    ]
+
+    const staticItems = userInfo ? activeUserMenu : inactiveUserMenu;
 
     return staticItems.map((item) => {
 

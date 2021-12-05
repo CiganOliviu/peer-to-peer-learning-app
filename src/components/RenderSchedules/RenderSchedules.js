@@ -1,44 +1,46 @@
-import React from "react";
+import React, { useState } from "react";
 import { getUserInfoParse } from "../../utils/localStorage";
 import ShowSpecificButton from "../ShowSpecificButton/ShowSpecificButton";
-
 import './RenderSchedules.css'
 
+function SetValidSchedule({ schedule, classObject }) {
+
+    return (
+        <div className="Schedule">
+            <div className="ScheduleBorder"/>
+            <h2>{ schedule?.course_title }</h2>
+            <div>&nbsp;</div>
+            <p>Data { schedule?.deadline_date }</p>
+            <p>Ora de intalnire { schedule?.deadline_hour }</p>
+            <div>&nbsp;</div>
+            <p>Postat la { schedule?.posted_on }</p>
+            <div>&nbsp;</div>
+            <p>{ classObject === 'Schedule Informatica' ?  <ShowSpecificButton classObject = { classObject } classObjectColor = { "#008cff" } /> : '' }</p>
+            <p>{ classObject === 'Schedule Matematica' ? <ShowSpecificButton classObject = { classObject } classObjectColor = { "#edb200" } /> : '' }</p>
+            <p>{ classObject === 'Schedule Romana' ? <ShowSpecificButton classObject = { classObject } classObjectColor = { "#f52516" } /> : '' }</p>
+        </div>
+    )
+}
 
 function RenderSchedules({ data, userGroup, classObject }) {
 
     const userInfo = getUserInfoParse();
 
-    let hasUserSchedule = false;
-    let hasTeacherSchedule = false;
+    const [hasUserSchedule, setHasUserSchedule] = useState(false);
+    const [hasTeacherSchedule, setHasTeacherSchedule] = useState(false);
+
+    const isScheduleValid = (hasUserSchedule, hasTeacherSchedule, schedule) => {
+        return (hasUserSchedule || hasTeacherSchedule) && (!schedule?.dated);
+    };
 
     return (
-        data.map((item) => {
+        data.map((schedule) => {
 
-            hasTeacherSchedule = item?.teacher?.email === userInfo?.user?.email;
+            setHasTeacherSchedule(schedule?.teacher?.email === userInfo?.user?.email);
+            setHasUserSchedule(schedule?.group?.name === userGroup?.current);
 
-            hasUserSchedule = item?.group?.name === userGroup?.current;
-
-            if ((hasUserSchedule || hasTeacherSchedule) && (!item?.dated))
-                return (
-                    <div className="Schedule">
-                        <div className="ScheduleBorder"/>
-                        <h2>{ item?.course_title }</h2>
-                        <div>&nbsp;</div>
-                        <p>Data { item?.deadline_date }</p>
-                        <p>Ora de intalnire { item?.deadline_hour }</p>
-                        <div>&nbsp;</div>
-                        <p>Postat la { item?.posted_on }</p>
-                        <div>&nbsp;</div>
-                        <p>{ classObject === 'Schedule Informatica' ?  <ShowSpecificButton classObject = { classObject } classObjectColor = { "#008cff" } /> : ''}</p>
-                        <p>{ classObject === 'Schedule Matematica' ? <ShowSpecificButton classObject = { classObject } classObjectColor = { "#edb200" } /> : ''}</p>
-                        <p>{ classObject === 'Schedule Romana' ? <ShowSpecificButton classObject = { classObject } classObjectColor = { "#f52516" } /> : ''}</p>
-                    </div>
-                )
-            else
-                return (
-                    <></>
-                )
+            return isScheduleValid(hasUserSchedule, hasTeacherSchedule, schedule) ?
+                <SetValidSchedule schedule={ schedule } classObject={ classObject } /> : <></>
         })
     )
 }

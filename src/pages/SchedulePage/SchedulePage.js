@@ -12,9 +12,8 @@ import getClientGroup from "../../utils/getClientGroup";
 import RenderSchedules from "../../components/RenderSchedules/RenderSchedules";
 import HalfHeroCard from "../../components/HalfHeroCard/HalfHeroCard";
 import schedule from './Images/schedule.jpeg'
-
-import './Schedule.css'
 import { Redirect } from "react-router-dom";
+import './Schedule.css'
 
 function SchedulePage() {
 
@@ -74,7 +73,7 @@ function SchedulePage() {
 
     useEffect(() => {
 
-        function serverErrors() {
+        const serverErrors = () => {
             return serverErrorInformaticsGroups ||
                 serverErrorMathematicsGroups ||
                 serverErrorRomanianGroups ||

@@ -1,7 +1,6 @@
 import React from 'react'
 import './HalfHeroCard.css'
 
-
 function HalfHeroCard({ imageUrl }) {
 
     return (

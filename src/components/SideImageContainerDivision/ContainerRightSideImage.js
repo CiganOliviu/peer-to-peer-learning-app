@@ -1,7 +1,6 @@
 import React from 'react';
 import './SideImageContainerDivision.css'
 
-
 function ContainerLeftSideImage({ mac }) {
 
     return (

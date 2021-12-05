@@ -1,7 +1,6 @@
 import React from 'react'
 import './ThreeImagesContainer.css'
 
-
 function ThreeImagesContainer({ imageLeft, imageCenter, imageRight,
                                 titleLeft, titleCenter, titleRight,
                                 contentLeft, contentCenter, contentRight,
@@ -10,7 +9,7 @@ function ThreeImagesContainer({ imageLeft, imageCenter, imageRight,
     return (
         <div className="FlexContainer" style={{ overflowX: 'hidden', }}>
             <div className="FlexChild">
-                <div data-aos="fade-right"  className="GradientImage">
+                <div data-aos="fade-right" className="GradientImage">
                     <img src={ imageLeft } alt="{ imageLeft }"/>
                 </div>
                 <div>&nbsp;</div>

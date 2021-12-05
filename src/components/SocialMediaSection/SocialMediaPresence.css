@@ -1,0 +1,61 @@
+.SocialMediaPresence {
+    text-align: center;
+    padding: 2%;
+}
+
+.FlexSocialMediaPresence {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+.FlexSocialMediaChild {
+    flex: 0.3;
+    font-size: 3.5rem;
+    padding: 2%;
+}
+
+#facebook {
+    margin-top: 5%;
+    color: red;
+    transition: all 500ms ease;
+}
+
+#facebook:hover {
+    color: #fff;
+}
+
+#instagram {
+    margin-top: 5%;
+    color: red;
+    transition: all 500ms ease;
+}
+
+#instagram:hover {
+    color: #fff;
+}
+
+#email {
+    margin-top: 5%;
+    color: red;
+    transition: all 500ms ease;
+}
+
+#email:hover {
+    color: #fff;
+}
+
+@media (max-width: 756px) {
+    #facebook {
+        font-size: 40px;
+    }
+
+    #instagram {
+        font-size: 40px;
+    }
+
+    #email {
+        font-size: 40px;
+    }
+}

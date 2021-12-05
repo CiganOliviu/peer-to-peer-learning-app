@@ -8,8 +8,7 @@ import { apiBaseURL } from "../../utils/baseUrls";
 import "aos/dist/aos.css"
 import './HeroCard.css'
 
-
-function HeroCard({ introRef, contactRef }) {
+function HeroCard({ introRef }) {
 
     const [heroCardDetails, setHeroCardDetails] = useState(null);
     const { serverErrorHeroCard, apiDataHeroCard } = useCustomFetchHeroCard();
@@ -19,33 +18,30 @@ function HeroCard({ introRef, contactRef }) {
     useEffect(() => {
 
         if (apiDataHeroCard) setHeroCardDetails(apiDataHeroCard[Math.floor(Math.random() * apiDataHeroCard?.length)]);
+    }, [apiDataHeroCard])
 
-        if (serverErrorHeroCard) {
-            console.log(serverErrorHeroCard);
-        }
+    useEffect(() => {
 
-    }, [apiDataHeroCard, serverErrorHeroCard])
+        if (serverErrorHeroCard) throw new Error("Error");
+    }, [serverErrorHeroCard])
 
     const executeScrollIntro = () => scrollToRef(introRef);
-    const executeScrollContact = () => scrollToRef(contactRef);
 
     return (
-        <div className="HeroContainer" style={{backgroundImage: `url(${apiBaseURL}${heroCardDetails?.image})`}}>
-            <div className="SmallPadding">
-
-            </div>
+        <div className="HeroContainer" style={{ backgroundImage: `url(${apiBaseURL}${heroCardDetails?.image})` }}>
+            <div className="SmallPadding" />
 
             <div className="WelcomeMessage" style={{ overflowX: 'hidden', }} >
-                <h1 data-aos="zoom-in">{heroCardDetails?.title}</h1>
+                <h1 data-aos="zoom-in">{ heroCardDetails?.title }</h1>
                 <div>&nbsp;</div>
 
-                <p data-aos="zoom-in">{heroCardDetails?.overview}</p>
+                <p data-aos="zoom-in">{ heroCardDetails?.overview }</p>
                 <div>&nbsp;</div><div>&nbsp;</div>
 
                 <div className="HeroButtons" data-aos="zoom-in">
-                    <button onClick={ executeScrollIntro } className="NavigationButtons" id="MoreInfoButton">Read more!</button>
-                    { !userInfo ? <Link to="login/" className="NavigationButtons" id="LoginButton">Login</Link> : <></> }
-                    <button onClick={ executeScrollContact } className="NavigationButtons" id="MoreInfoButton">Contact us!</button>
+                    <Link to="#" onClick={ executeScrollIntro } className="NavigationButtons" id="MoreInfoButton">Read more!</Link>
+                    { !userInfo ? <Link to="/login" className="NavigationButtons" id="LoginButton">Login</Link> : <></> }
+                    <Link to="/contact" className="NavigationButtons" id="MoreInfoButton">Contact us!</Link>
                 </div>
 
             </div>

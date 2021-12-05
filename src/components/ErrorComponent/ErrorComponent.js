@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGhost } from "@fortawesome/free-solid-svg-icons";
 import '../../pages/Error404Page/Error404Page.css'
 
-
 function ErrorComponent() {
 
     return (

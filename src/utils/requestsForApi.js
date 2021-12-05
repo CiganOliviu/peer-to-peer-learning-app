@@ -4,6 +4,7 @@ const baseMathematicsURL = `${apiBaseURL}/mathematics`;
 const baseRomanianURL = `${apiBaseURL}/romanian`;
 const baseInformaticsURL = `${apiBaseURL}/informatics`;
 const baseLoginURL = `${apiBaseURL}/details/login/`;
+const baseContactURL = `${apiBaseURL}/contact`;
 const baseStatsURL = `${apiBaseURL}/stats`;
 const BaseAPIDependencies = `${apiBaseURL}/app-dependencies`;
 
@@ -20,6 +21,7 @@ const requests = {
     fetchRomanianDepartmentSchedule: `${baseRomanianURL}/romanian-schedule`,
     fetchHeroCardDetails: `${BaseAPIDependencies}/hero-card`,
     fetchStaff: `${baseStatsURL}/staff`,
+    fetchStaffDetail: `${baseStatsURL}/staff/`,
     fetchClient: `${baseStatsURL}/client`,
     fetchTeacher: `${baseStatsURL}/teacher`,
     fetchTeacherDetail: `${baseStatsURL}/teacher/`,
@@ -28,6 +30,7 @@ const requests = {
     fetchStudentExpectations: `${baseStatsURL}/student-expectations`,
     fetchFeedback: `${baseStatsURL}/feedback`,
     fetchLogin: `${baseLoginURL}`,
+    fetchContact: `${baseContactURL}/contact-lister`,
 }
 
 export default requests;

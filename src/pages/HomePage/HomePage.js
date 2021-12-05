@@ -3,31 +3,25 @@ import ContainerLeftSideImage from "../../components/SideImageContainerDivision/
 import ContainerRightSideImage from "../../components/SideImageContainerDivision/ContainerRightSideImage";
 import ThreeImagesContainer from "../../components/ThreeImagesContainer/ThreeImagesContainer";
 import ParallaxContainer from "../../components/ParallaxContainer/ParallaxContainer";
-import HomeStaffContainerSection from "../../components/StaffContainer/HomeStaffContainerSection/HomeStaffContainerSection";
-
-import iphonePresentation from './Images/iphonePresentation.png'
+import HeroCard from "../../components/HeroCard/HeroCard";
+import iphoneAnimationScroller from './Images/IphoneAnimationScroller.mp4'
 import macPresentation from './Images/macPresentation.png'
 import focusOnStudent from './Images/focusOnStudent.jpeg'
 import guidance from './Images/guidance.jpeg'
 import teamWork from './Images/teamWork.jpeg'
-import HeroCard from "../../components/HeroCard/HeroCard";
-
+import SocialMediaSection from "../../components/SocialMediaSection/SocialMediaSection";
 import './HomePage.css'
-
 
 function HomePage() {
 
     const introRef = useRef(null);
-    const contactRef = useRef(null);
 
     return (
         <div className="Home">
-            <HeroCard introRef = { introRef } contactRef = { contactRef } />
+            <HeroCard introRef = { introRef } />
 
             <div className="ClipUpWallpaper" ref = { introRef }>
-                <div className="BreathingSpaceSmall" />
-                <ContainerLeftSideImage iphone = { iphonePresentation } />
-                <div className="BreathingSpaceSmall" />
+                <ContainerLeftSideImage iphone = { iphoneAnimationScroller } />
             </div>
 
             <div className="GrayWallpaperClipDown">
@@ -49,10 +43,8 @@ function HomePage() {
             <div className="BreathingSpaceSmall" />
             <ParallaxContainer />
             <div className="BreathingSpaceSmall" />
-            <div className="GrayWallpaper" ref = { contactRef }>
-                <HomeStaffContainerSection />
-            </div>
-
+            <SocialMediaSection isDataAos={ true }/>
+            <div className="BreathingSpaceSmall" />
             <div className="SpaceForPhone"/>
         </div>
     )

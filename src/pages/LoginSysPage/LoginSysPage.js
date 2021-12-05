@@ -5,7 +5,6 @@ import { getUserInfoParse, isUserDataValid, LOCAL_STORAGE_KEYS } from "../../uti
 
 import './LoginSysPage.css'
 
-
 function LoginSysPage() {
 
     const [username, setUsername] = useState("");
@@ -16,12 +15,19 @@ function LoginSysPage() {
 
     let history = useHistory();
 
-    function handleLogin() {
+    const isDataInvalid = () => {
+        return username === '' || password === '';
+    };
 
-        if (username === '' || password === '')
-            setErrorMessage("Unable to process empty fields");
+    const isDataValid = () => {
+        return username !== '' && password !== '';
+    };
 
-        if (username !== '' && password !== '') {
+    const handleLogin = () => {
+
+        if (isDataInvalid()) setErrorMessage("Unable to process empty fields");
+
+        if (isDataValid()) {
             asyncHandleLogin(username, password).then((apiData) => {
 
                 if (isUserDataValid(apiData)) {
@@ -34,12 +40,12 @@ function LoginSysPage() {
 
             })
         }
-    }
+    };
 
-    function handleAsGuest() {
+    const handleAsGuest = () => {
 
         history.push('/');
-    }
+    };
 
     if (userInfo) return <Redirect to="/" />
 
@@ -57,7 +63,7 @@ function LoginSysPage() {
 
                 <div className="Padding"/>
 
-                {errorMessage && <div className="Error"><b>{errorMessage}</b></div>}
+                { errorMessage && <div className="Error"><b>{errorMessage}</b></div> }
                 <br/>
 
                 <div className="flex">

@@ -18,7 +18,7 @@
 
 .Form input {
     padding: 2.2%;
-    width: 50%;
+    width: 60%;
     border-radius: 1rem;
     border: 1px solid #f2f2f2;
     outline: none;
@@ -27,7 +27,7 @@
 
 .Form textarea {
     padding: 2.2%;
-    width: 50%;
+    width: 60%;
     border-radius: 1rem;
     border: 1px solid #f2f2f2;
     outline: none;
@@ -36,7 +36,7 @@
 
 .Form select {
     padding: 2.2%;
-    width: 50%;
+    width: 60%;
     border-radius: 1rem;
     border: 1px solid #f2f2f2;
     outline: none;

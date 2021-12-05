@@ -1,6 +1,5 @@
 import React from 'react'
 
-
 function RenderClientData({ userInfo }) {
     return (
         <div>

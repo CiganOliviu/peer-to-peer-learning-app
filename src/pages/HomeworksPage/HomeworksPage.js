@@ -8,10 +8,8 @@ import getClientGroup from '../../utils/getClientGroup';
 import RenderHomeworks from "../../components/RenderHomeworks/RenderHomeworks";
 import HalfHeroCard from "../../components/HalfHeroCard/HalfHeroCard";
 import homeworks from './Images/homeworks.jpeg'
-
-import './Homeworks.css'
 import { Redirect } from "react-router-dom";
-
+import './Homeworks.css'
 
 function HomeworksPage() {
 
@@ -72,7 +70,7 @@ function HomeworksPage() {
 
     useEffect(() => {
 
-        function serverErrors() {
+        const serverErrors = () => {
             return serverErrorInformaticsGroups ||
                 serverErrorMathematicsGroups ||
                 serverErrorRomanianGroups ||
@@ -92,12 +90,11 @@ function HomeworksPage() {
             ])
 
     if (!userInfo)
-        return <Redirect to="/login"/>
+        return <Redirect to="/login" />
 
     getClientGroup(informaticsGroups, userInformaticsGroup, userInfo);
     getClientGroup(mathematicsGroups, userMathematicsGroup, userInfo);
     getClientGroup(romanianGroups, userRomanianGroup, userInfo);
-
 
     return (
         <div>

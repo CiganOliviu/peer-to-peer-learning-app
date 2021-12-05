@@ -7,7 +7,6 @@ import romanianMaterials from "../../pages/DocxPage/Images/languageMaterials.jpe
 import mathematicsMaterials from "../../pages/DocxPage/Images/mathMaterials.jpeg";
 import informaticsMaterials from "../../pages/DocxPage/Images/informaticsMaterials.jpeg";
 
-
 function GetPremiumContent() {
     return (
         <div className="Docx">

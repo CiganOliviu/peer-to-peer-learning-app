@@ -9,7 +9,7 @@ import {
 import { getUserInfoParse } from "../../utils/localStorage";
 import RenderClientGroup from "../../components/RenderClientGroup/RenderClientGroup";
 import GetClientSpecificData from "../../components/GetClientSpecificData/GetClientSpecificData";
-import GetTeacherSpecificData from "../../components/GetTeacherSpecificData/GetTeacherSpecificData";
+import GetTeacherSpecificData from "../../components/GetSpecificData/GetTeacherSpecificData";
 import GetLinksForTeacher from "../../components/GetLinksForTeacher/GetLinksForTeacher";
 import DisplayExpectations from "../../components/DisplayExpectations/DisplayExpectations";
 import './UserPage.css'
@@ -76,7 +76,7 @@ function UserPage() {
 
     useEffect(() => {
 
-        function serverErrors() {
+        const serverErrors = () => {
 
             return serverErrorInformaticsGroups ||
                 serverErrorMathematicsGroups ||
@@ -171,7 +171,7 @@ function UserPage() {
 
                             return (
                                 <div>
-                                    { userInfo.user.email === data.student.email && data.done === false ? <DisplayExpectations data={ data } /> : <></> }
+                                    { userInfo.user.email === data.student.email && data.done === false ? <DisplayExpectations index = { index } data={ data } /> : <></> }
                                 </div>
                             );
                         })

@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import { useCustomFetchStaff } from "../../utils/apiCalls";
 import RenderStaff from "../../components/StaffContainer/RenderStaff/RenderStaff";
 
@@ -6,14 +6,17 @@ function OurTeamPage() {
 
     const [staff, setStaff] = useState([]);
     const { serverErrorStaff, apiDataStaff } = useCustomFetchStaff();
+    const url = '/staff-detail/';
 
     useEffect(() => {
 
         if (apiDataStaff) setStaff(apiDataStaff);
+    }, [apiDataStaff])
 
-        if (serverErrorStaff) throw new Error("Fetch Error")
+    useEffect(() => {
 
-    }, [apiDataStaff, serverErrorStaff])
+        if (serverErrorStaff) throw new Error("Fetch Error");
+    }, [serverErrorStaff])
 
     return (
         <div className="StaffTeam">
@@ -21,7 +24,7 @@ function OurTeamPage() {
             <div className="FlexContainer">
                 {
                     staff.map((data) => {
-                        return <RenderStaff data={ data } />;
+                        return <RenderStaff data={ data } url={ url } />;
                     })
                 }
             </div>

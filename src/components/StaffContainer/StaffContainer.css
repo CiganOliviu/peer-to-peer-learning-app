@@ -4,16 +4,13 @@
 
 .OurTeam {
     text-align: center;
-    position: relative;
     color: #fff;
     width: 100%;
 }
 
 .OurTeam:before {
     content: "";
-    position: absolute;
-    top: 0;
-    width: 300px;
+    width: 350px;
     height: 100%;
     background-color: rgba(0,0,0,0.5);
     transition:all 0.3s ease 0s;
@@ -25,7 +22,7 @@
 }
 
 .OurTeam img {
-    width: 300px;
+    width: 350px;
     height: auto;
 }
 
@@ -77,6 +74,7 @@
 }
 
 .FlexContainerLink {
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;

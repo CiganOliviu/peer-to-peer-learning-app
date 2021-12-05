@@ -12,14 +12,15 @@ function ParallaxContainer() {
     useEffect(() => {
 
         if (apiDataHeroCard) setHeroCardDetails(apiDataHeroCard[Math.floor(Math.random() * apiDataHeroCard?.length)]);
+    }, [apiDataHeroCard])
 
-        if (serverErrorHeroCard)
-            throw new Error("Fetch Error");
+    useEffect(() => {
 
-    }, [apiDataHeroCard, serverErrorHeroCard])
+        if (serverErrorHeroCard) throw new Error("Fetch Error");
+    }, [serverErrorHeroCard])
 
     return (
-        <div className="ParallaxContainer" style={{backgroundImage: `url(${apiBaseURL}${heroCardDetails?.image})`}}>
+        <div className="ParallaxContainer" style={{ backgroundImage: `url(${apiBaseURL}${heroCardDetails?.image})` }}>
             <div data-aos="fade-in" className='ParallaxBackground'>
                 <div className='Gradient'>
                     <h1>Ready for the future of teaching?</h1>

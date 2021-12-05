@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 
-
 const useCustomFetch = (url) => {
     const [isLoading, setIsLoading] = useState(false);
     const [data, setData] = useState(null);

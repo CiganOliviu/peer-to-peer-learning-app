@@ -4,7 +4,6 @@ import romanianMaterialsFree from "../../pages/DocxPage/Images/languageMaterials
 import mathematicsMaterialsFree from "../../pages/DocxPage/Images/mathMaterialsFree.jpeg";
 import informaticsMaterialsFree from "../../pages/DocxPage/Images/informaticsMaterialsFree.jpeg";
 
-
 function GetFreeContent() {
     return (
         <div className="Docx">

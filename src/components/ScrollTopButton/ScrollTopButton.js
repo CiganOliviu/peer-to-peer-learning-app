@@ -1,9 +1,7 @@
 import React, { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronUp } from '@fortawesome/free-solid-svg-icons'
-
 import './ScrollTopButton.css'
-
 
 function ScrollTopButton() {
 
@@ -13,9 +11,7 @@ function ScrollTopButton() {
 
         const scrolled = document.documentElement.scrollTop;
 
-        if (scrolled > 300) setVisible(true);
-
-        else if (scrolled <= 300) setVisible(false);
+        setVisible(scrolled > 300);
     };
 
     const scrollToTop = () =>{

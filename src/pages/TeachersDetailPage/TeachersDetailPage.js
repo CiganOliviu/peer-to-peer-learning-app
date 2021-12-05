@@ -1,8 +1,8 @@
-import React, {useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import { useCustomFetchFeedbackGet, useCustomFetchTeacherDetail } from "../../utils/apiCalls";
 import { useParams } from "react-router-dom";
 import RenderUserFeedback from "../../components/RenderUserFeedback/RenderUserFeedback";
-import GetTeacherSpecificData from "../../components/GetTeacherSpecificData/GetTeacherSpecificData";
+import GetTeacherSpecificData from "../../components/GetSpecificData/GetTeacherSpecificData";
 
 function TeachersDetailPage() {
 
@@ -25,7 +25,7 @@ function TeachersDetailPage() {
 
     useEffect(() => {
 
-        function serverError() {
+        const serverError = () => {
 
             return (serverErrorTeacherDetail || serverErrorFeedbackGet);
         }

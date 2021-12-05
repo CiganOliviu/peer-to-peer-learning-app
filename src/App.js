@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { Fragment  } from 'react'
 import { BrowserRouter as Router, Switch, Route, BrowserRouter } from 'react-router-dom';
+import { routesMapping } from "./utils/routesMapping";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import ScrollTopButton from "./components/ScrollTopButton/ScrollTopButton";
@@ -14,6 +15,10 @@ import TeachersDetailPage from "./pages/TeachersDetailPage/TeachersDetailPage";
 import UserPage from "./pages/UserPage/UserPage";
 import Feedback from "./pages/Feedback/Feedback";
 import OurTeamPage from "./pages/OurTeamPage/OurTeamPage";
+import StaffDetailPage from "./pages/StaffDetailPage/StaffDetailPage";
+import OurTeachersPage from "./pages/OurTeachersPage/OurTeachersPage";
+import ContactPage from "./pages/ContactPage/ContactPage";
+import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 import './App.css';
 
 function App() {
@@ -22,53 +27,71 @@ function App() {
            <ErrorBoundary>
                <BrowserRouter>
                    <Router>
-                       <Switch>
-                           <Route path="/" exact>
-                               <Header />
-                               <ScrollTopButton />
-                               <HomePage />
-                               <Footer />
-                           </Route>
-                           <Route path="/docx" exact>
-                               <Header />
-                               <DocxPage />
-                               <Footer />
-                           </Route>
-                           <Route path="/our-team" exact>
-                               <Header />
-                               <OurTeamPage />
-                               <Footer />
-                           </Route>
-                           <Route path="/homeworks" exact>
-                               <Header />
-                               <HomeworksPage />
-                               <Footer />
-                           </Route>
-                           <Route path="/login" exact>
-                               <LoginSysPage />
-                           </Route>
-                           <Router path="/feedback" exact>
-                               <Feedback />
-                           </Router>
-                           <Route path="/schedule" exact>
-                               <Header />
-                               <SchedulePage />
-                               <Footer />
-                           </Route>
-                           <Route path="/teacher-detail/:id" exact>
-                               <Header />
-                               <TeachersDetailPage />
-                               <Footer />
-                           </Route>
-                           <Route path="/user" exact>
-                               <Header />
-                               <UserPage />
-                               <Footer />
-                           </Route>
-                           <Route exact>
-                               <Error404Page />
-                           </Route>
-                       </Switch>
+                       <Fragment>
+                           <ScrollToTop />
+                           <Switch>
+                               <Route path={ routesMapping.HomeRoute } exact>
+                                   <Header />
+                                   <ScrollTopButton />
+                                   <HomePage />
+                                   <Footer />
+                               </Route>
+                               <Route path={ routesMapping.DocxRoute } exact>
+                                   <Header />
+                                   <DocxPage />
+                                   <Footer />
+                               </Route>
+                               <Route path={ routesMapping.OurTeamRoute } exact>
+                                   <Header />
+                                   <OurTeamPage />
+                                   <Footer />
+                               </Route>
+                               <Route path={ routesMapping.OurTeachersRoute } exact>
+                                   <Header />
+                                   <OurTeachersPage />
+                                   <Footer />
+                               </Route>
+                               <Route path={ routesMapping.HomeworksRoute } exact>
+                                   <Header />
+                                   <HomeworksPage />
+                                   <Footer />
+                               </Route>
+                               <Route path={ routesMapping.LoginRoute } exact>
+                                   <LoginSysPage />
+                               </Route>
+                               <Router path={ routesMapping.FeedbackRoute } exact>
+                                   <Feedback />
+                               </Router>
+                               <Route path={ routesMapping.ScheduleRoute } exact>
+                                   <Header />
+                                   <SchedulePage />
+                                   <Footer />
+                               </Route>
+                               <Route path={ routesMapping.TeacherDetailsRoute } exact>
+                                   <Header />
+                                   <TeachersDetailPage />
+                                   <Footer />
+                               </Route>
+                               <Route path={ routesMapping.StaffDetailsRoute } exact>
+                                   <Header />
+                                   <StaffDetailPage />
+                                   <Footer />
+                               </Route>
+                               <Route path={ routesMapping.UserDetailsRoute } exact>
+                                   <Header />
+                                   <UserPage />
+                                   <Footer />
+                               </Route>
+                               <Route path={ routesMapping.ContactRoute } exact>
+                                   <Header />
+                                   <ContactPage />
+                                   <Footer />
+                               </Route>
+                               <Route exact>
+                                   <Error404Page />
+                               </Route>
+                           </Switch>
+                       </Fragment>
                    </Router>
                </BrowserRouter>
            </ErrorBoundary>

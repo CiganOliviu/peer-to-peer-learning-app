@@ -1,6 +1,5 @@
 import React from 'react'
 
-
 function RenderClientGroup({ userInfo, clientGroup, className }) {
 
     return (
@@ -9,7 +8,7 @@ function RenderClientGroup({ userInfo, clientGroup, className }) {
                 data?.client.map((clientData) => {
                     return (
                         <div>
-                            <p><b>{userInfo?.user?.email === clientData?.email ? className + data?.name : ""}</b></p>
+                            <p><b>{ userInfo?.user?.email === clientData?.email ? className + data?.name : "" }</b></p>
                         </div>
                     )
                 })

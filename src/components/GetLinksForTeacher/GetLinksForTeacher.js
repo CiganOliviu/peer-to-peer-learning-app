@@ -2,7 +2,6 @@ import React from 'react'
 import { ExternalLink } from "react-external-link";
 import './GetLinksForTeacher.css'
 
-
 function GetLinksForTeacher() {
     return (
         <div className="DataForTeacher">

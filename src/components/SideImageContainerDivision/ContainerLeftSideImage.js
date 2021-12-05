@@ -1,7 +1,5 @@
 import React from 'react';
-
 import './SideImageContainerDivision.css'
-
 
 function ContainerLeftSideImage({ iphone }) {
 
@@ -10,7 +8,9 @@ function ContainerLeftSideImage({ iphone }) {
 
             <div data-aos="fade-right" className="FlexChild Image">
                 <div className="LeftSideImage">
-                    <img src={ iphone } alt="{ iphone }" />
+                    <video muted autoPlay loop>
+                        <source src={ iphone } type="video/mp4" />
+                    </video>
                 </div>
             </div>
 

@@ -2,9 +2,7 @@ import React, {useEffect, useState} from 'react'
 import { asyncHandleFeedback, useCustomFetchTeacher } from "../../utils/apiCalls";
 import { createBrowserHistory } from 'history';
 import { getUserInfoParse } from "../../utils/localStorage";
-
 import './Feedback.css'
-
 
 function Feedback() {
 
@@ -21,13 +19,21 @@ function Feedback() {
     const [teacherDetails, setTeacherDetails] = useState([]);
     const { serverErrorTeacher, apiDataTeacher } = useCustomFetchTeacher();
 
-    function handleFeedback() {
+    const isDataInvalid = () => {
+        return title === '' || message === '' || targetTeacher === '';
+    };
 
-        if (title === '' || message === '' || targetTeacher === '')
+    const isDataValid = () => {
+        return title !== '' || message !== '' || targetTeacher !== '';
+    };
+
+    const handleFeedback = () => {
+
+        if (isDataInvalid())
             setErrorMessage("Unable to process empty fields");
 
 
-        if (title !== '' || message !== '' || targetTeacher !== '') {
+        if (isDataValid()) {
             asyncHandleFeedback(title, message, targetTeacher).then(() => {
 
                 setErrorMessage("");
@@ -35,17 +41,17 @@ function Feedback() {
                 history.go('/')
             })
         }
-    }
+    };
 
     useEffect(() => {
 
-        if (apiDataTeacher)
-            setTeacherDetails(apiDataTeacher);
+        if (apiDataTeacher) setTeacherDetails(apiDataTeacher);
+    }, [apiDataTeacher]);
 
-        if (serverErrorTeacher)
-            throw new Error("Fetch error");
+    useEffect(() => {
 
-    }, [serverErrorTeacher, apiDataTeacher])
+        if (serverErrorTeacher) throw new Error("Fetch error");
+    }, [serverErrorTeacher]);
 
     function handleGoHomeButton() {
 

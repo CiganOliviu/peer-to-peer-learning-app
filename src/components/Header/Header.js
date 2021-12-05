@@ -7,24 +7,21 @@ import SetUserSpecificMenuDropDown from "../SetUserSpecificMenuDropdown/SetUserS
 import { getUserInfoParse, LOCAL_STORAGE_KEYS  } from "../../utils/localStorage";
 import { Link, useHistory } from "react-router-dom";
 import Aos from "aos";
-
 import './Header.css'
-
 
 function Header() {
 
+    const [navbar, setNavBar] = useState(false);
     const userInfo = getUserInfoParse();
 
     let history = useHistory();
 
-    function logOut() {
+    const logOut = () => {
 
         localStorage.clear(LOCAL_STORAGE_KEYS.userInfo);
 
         history.push('/')
     }
-
-    const [navbar, setNavBar] = useState(false);
 
     useEffect(() => {
 
@@ -57,7 +54,7 @@ function Header() {
                     <div className="ItemsRightAlign">
                         <li className="Item">
                             <div className="Dropdown">
-                                <Link to="" className="User DropButton"><FontAwesomeIcon key='UserCircle' icon={ faUserCircle } /></Link>
+                                <Link to="#" className="User DropButton"><FontAwesomeIcon key='UserCircle' icon={ faUserCircle } /></Link>
                                 <div className="DropdownContent">
                                     <SetUserSpecificMenuDropDown userInfo={ userInfo } logOut = { logOut }/>
                                 </div>

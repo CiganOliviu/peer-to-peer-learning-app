@@ -123,6 +123,18 @@ const useCustomFetchStaff = () => {
 };
 
 
+const useCustomFetchStaffDetail = id => {
+    const {
+        error: serverErrorStaffDetail,
+        data: apiDataStaffDetail,
+        isLoading: isLoadingStaffDetail,
+
+    } = useCustomFetch(`${requests.fetchStaffDetail}${id}`);
+
+    return { isLoadingStaffDetail, serverErrorStaffDetail, apiDataStaffDetail }
+}
+
+
 const useCustomFetchClient = () => {
     const {
         error: serverErrorClient,
@@ -239,6 +251,33 @@ export async function asyncHandleLogin(username, password) {
     }
 }
 
+export async function asyncHandleContact(first_name, last_name, email, client_type, subject, phone_number, message) {
+
+    try {
+        const request = await fetch(requests.fetchContact, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                first_name,
+                last_name,
+                email,
+                client_type,
+                subject,
+                phone_number,
+                message,
+            }),
+        });
+
+        return await request.json();
+
+    } catch (error) {
+
+        throw new Error(error);
+    }
+}
+
 export {
     useCustomFetchMathematicsGroups,
     useCustomFetchRomanianGroups,
@@ -251,6 +290,7 @@ export {
     useCustomFetchRomanianSchedule,
     useCustomFetchHeroCard,
     useCustomFetchStaff,
+    useCustomFetchStaffDetail,
     useCustomFetchClient,
     useCustomFetchTeacher,
     useCustomFetchTeacherDetail,
