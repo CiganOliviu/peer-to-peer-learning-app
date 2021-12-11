@@ -5,8 +5,8 @@ import {
     useCustomFetchMathematicsGroups,
     useCustomFetchRomanianGroups,
     useCustomFetchClient, useCustomFetchTeacher, useCustomFetchTeacherExpectations, useCustomFetchStudentExpectations,
-} from '../../utils/apiCalls'
-import { getUserInfoParse } from "../../utils/localStorage";
+} from '../../backendApi/apiCalls'
+import { getUserInfoParse } from "../../helpers/localStorage";
 import RenderClientGroup from "../../components/RenderClientGroup/RenderClientGroup";
 import GetClientSpecificData from "../../components/GetClientSpecificData/GetClientSpecificData";
 import GetTeacherSpecificData from "../../components/GetSpecificData/GetTeacherSpecificData";

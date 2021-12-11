@@ -10,6 +10,13 @@ import focusOnStudent from './Images/focusOnStudent.jpeg'
 import guidance from './Images/guidance.jpeg'
 import teamWork from './Images/teamWork.jpeg'
 import SocialMediaSection from "../../components/SocialMediaSection/SocialMediaSection";
+import {
+    DocumentationContent,
+    DocumentationTitle,
+    FeedbackContent,
+    FeedbackTitle, TeamWorkContent,
+    TeamWorkTitle
+} from "../../helpers/setHomePageContent";
 import './HomePage.css'
 
 function HomePage() {
@@ -33,12 +40,12 @@ function HomePage() {
             <ThreeImagesContainer imageLeft = { guidance }
                                   imageCenter = { focusOnStudent }
                                   imageRight = { teamWork }
-                                  titleLeft = { "Documentatie cu materia necesara" }
-                                  titleCenter = { "Feedback in functie de implicare si evolutie" }
-                                  titleRight = { "Team-Work" }
-                                  contentLeft = { "Punem la dispozitie o documentatie vasta, cu toata materia necesara" }
-                                  contentCenter = { "Elevul este evaluat constant in functie de activitate" }
-                                  contentRight = { "In echipa, fiecare invata de la fiecare" }
+                                  titleLeft = { DocumentationTitle }
+                                  titleCenter = { FeedbackTitle }
+                                  titleRight = { TeamWorkTitle }
+                                  contentLeft = { DocumentationContent }
+                                  contentCenter = { FeedbackContent }
+                                  contentRight = { TeamWorkContent }
             />
             <div className="BreathingSpaceSmall" />
             <ParallaxContainer />

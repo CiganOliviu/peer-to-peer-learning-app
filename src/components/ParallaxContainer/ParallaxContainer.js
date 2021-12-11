@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from "react-router-dom";
-import { useCustomFetchHeroCard } from "../../utils/apiCalls";
-import { apiBaseURL } from "../../utils/baseUrls";
+import { useCustomFetchHeroCard } from "../../backendApi/apiCalls";
+import { apiBaseURL } from "../../helpers/baseBackendUrl";
 import './ParallaxContainer.css'
+import { ParallaxButtonContent, ParallaxTitle } from "../../helpers/setHomePageContent";
+import { routesMapping } from "../../helpers/routesMapping";
 
 function ParallaxContainer() {
 
     const [heroCardDetails, setHeroCardDetails] = useState(null);
     const { serverErrorHeroCard, apiDataHeroCard } = useCustomFetchHeroCard();
+    const standardHeroCardUrl = `url(${apiBaseURL}${heroCardDetails?.image})`;
 
     useEffect(() => {
 
@@ -20,12 +23,12 @@ function ParallaxContainer() {
     }, [serverErrorHeroCard])
 
     return (
-        <div className="ParallaxContainer" style={{ backgroundImage: `url(${apiBaseURL}${heroCardDetails?.image})` }}>
+        <div className="ParallaxContainer" style={{ backgroundImage: standardHeroCardUrl }}>
             <div data-aos="fade-in" className='ParallaxBackground'>
                 <div className='Gradient'>
-                    <h1>Ready for the future of teaching?</h1>
-                    <Link to="our-team/" className="NavigationButtons" id="MoreInfoButton">
-                        Get in touch with our team!
+                    <h1>{ ParallaxTitle }</h1>
+                    <Link to={ routesMapping.OurTeamRoute } className="NavigationButtons" id="MoreInfoButton">
+                        { ParallaxButtonContent }
                     </Link>
                 </div>
             </div>

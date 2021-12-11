@@ -4,7 +4,7 @@ import { faUserCircle } from '@fortawesome/free-solid-svg-icons'
 import SetStaticNavigationItemsDesktop from "../SetStaticNavigationItemsDesktop/SetStaticNavigationItemsDesktop";
 import SetStaticNavigationItemsPhone from "../SetStaticNavigationItemsPhone/SetStaticNavigationItemsPhone";
 import SetUserSpecificMenuDropDown from "../SetUserSpecificMenuDropdown/SetUserSpecificMenuDropDown";
-import { getUserInfoParse, LOCAL_STORAGE_KEYS  } from "../../utils/localStorage";
+import { getUserInfoParse, LOCAL_STORAGE_KEYS  } from "../../helpers/localStorage";
 import { Link, useHistory } from "react-router-dom";
 import Aos from "aos";
 import './Header.css'

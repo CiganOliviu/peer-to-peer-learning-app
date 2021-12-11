@@ -1,10 +1,10 @@
 import React, {useEffect, useRef, useState} from 'react'
-import { getUserInfoParse } from "../../utils/localStorage";
+import { getUserInfoParse } from "../../helpers/localStorage";
 import {
     useCustomFetchInformaticsGroups, useCustomFetchInformaticsHomework, useCustomFetchMathematicsGroups,
     useCustomFetchMathematicsHomework, useCustomFetchRomanianGroups, useCustomFetchRomanianHomework
-} from "../../utils/apiCalls";
-import getClientGroup from '../../utils/getClientGroup';
+} from "../../backendApi/apiCalls";
+import getClientGroup from '../../helpers/getClientGroup';
 import RenderHomeworks from "../../components/RenderHomeworks/RenderHomeworks";
 import HalfHeroCard from "../../components/HalfHeroCard/HalfHeroCard";
 import homeworks from './Images/homeworks.jpeg'

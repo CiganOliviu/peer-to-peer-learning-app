@@ -1,12 +1,11 @@
 import React, { Fragment  } from 'react'
 import { BrowserRouter as Router, Switch, Route, BrowserRouter } from 'react-router-dom';
-import { routesMapping } from "./utils/routesMapping";
+import { routesMapping } from "./helpers/routesMapping";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import ScrollTopButton from "./components/ScrollTopButton/ScrollTopButton";
 import ErrorBoundary from "./components/BoundaryError/BoundaryError";
 import HomePage from "./pages/HomePage/HomePage"
-import DocxPage from "./pages/DocxPage/DocxPage";
 import Error404Page from "./pages/Error404Page/Error404Page";
 import HomeworksPage from "./pages/HomeworksPage/HomeworksPage";
 import LoginSysPage from "./pages/LoginSysPage/LoginSysPage";
@@ -34,11 +33,6 @@ function App() {
                                    <Header />
                                    <ScrollTopButton />
                                    <HomePage />
-                                   <Footer />
-                               </Route>
-                               <Route path={ routesMapping.DocxRoute } exact>
-                                   <Header />
-                                   <DocxPage />
                                    <Footer />
                                </Route>
                                <Route path={ routesMapping.OurTeamRoute } exact>

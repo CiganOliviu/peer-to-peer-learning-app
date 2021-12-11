@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import { asyncHandleContact, useCustomFetchStaff } from "../../utils/apiCalls";
+import { asyncHandleContact, useCustomFetchStaff } from "../../backendApi/apiCalls";
 import RenderStaff from "../../components/StaffContainer/RenderStaff/RenderStaff";
 import { createBrowserHistory } from "history";
 import SocialMediaSection from "../../components/SocialMediaSection/SocialMediaSection";

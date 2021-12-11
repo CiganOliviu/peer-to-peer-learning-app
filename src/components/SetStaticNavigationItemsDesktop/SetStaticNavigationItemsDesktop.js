@@ -1,21 +1,20 @@
 import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import { routesMapping } from "../../helpers/routesMapping";
 
 function SetStaticNavigationItemsDesktop({ userInfo }) {
 
     const location = useLocation();
 
     const activeUserMenu = [
-        { label: 'Homeworks', route: '/homeworks' },
-        { label: 'Docx', route: '/docx' },
-        { label: 'Schedule', route: '/schedule' },
-        { label: 'Contact', route: '/contact' },
+        { label: 'Homeworks', route: routesMapping.HomeworksRoute },
+        { label: 'Schedule', route: routesMapping.ScheduleRoute },
+        { label: 'Contact', route: routesMapping.ContactRoute },
     ]
 
     const inactiveUserMenu = [
-        { label: 'Docx', route: '/docx' },
-        { label: 'Teachers', route: '/our-teachers' },
-        { label: 'Contact', route: '/contact' },
+        { label: 'Teachers', route: routesMapping.OurTeachersRoute },
+        { label: 'Contact', route: routesMapping.ContactRoute },
     ]
 
     const staticItems = userInfo ? activeUserMenu : inactiveUserMenu;

@@ -1,14 +1,14 @@
 import React, {useEffect, useRef, useState} from 'react'
-import { getUserInfoParse } from "../../utils/localStorage";
+import { getUserInfoParse } from "../../helpers/localStorage";
 import {
     useCustomFetchInformaticsGroups,
     useCustomFetchInformaticsSchedule,
     useCustomFetchMathematicsGroups,
     useCustomFetchMathematicsSchedule,
     useCustomFetchRomanianGroups, useCustomFetchRomanianSchedule
-} from "../../utils/apiCalls";
+} from "../../backendApi/apiCalls";
 
-import getClientGroup from "../../utils/getClientGroup";
+import getClientGroup from "../../helpers/getClientGroup";
 import RenderSchedules from "../../components/RenderSchedules/RenderSchedules";
 import HalfHeroCard from "../../components/HalfHeroCard/HalfHeroCard";
 import schedule from './Images/schedule.jpeg'

@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link, useLocation} from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
     faHome,
@@ -8,22 +8,21 @@ import {
     faScroll,
     faUserCog, faPhone
 } from '@fortawesome/free-solid-svg-icons'
+import { routesMapping } from "../../helpers/routesMapping";
 
 function SetStaticNavigationItemsPhone({ userInfo }) {
 
     const location = useLocation();
     const activeUserStaticMenu = [
-        { label: 'Homeworks', route: '/homeworks' },
-        { label: 'Home', route: '/'},
-        { label: 'Docx', route: '/docx' },
-        { label: 'Schedule', route: '/schedule' },
+        { label: 'Homeworks', route: routesMapping.HomeworksRoute },
+        { label: 'Home', route: routesMapping.HomeRoute },
+        { label: 'Schedule', route: routesMapping.ScheduleRoute },
     ]
 
     const inactiveUserStaticMenu = [
-        { label: 'Home', route: '/'},
-        { label: 'Docx', route: '/docx' },
-        { label: 'Teachers', route: '/our-teachers' },
-        { label: 'Contact', route: '/contact' },
+        { label: 'Home', route: routesMapping.HomeRoute },
+        { label: 'Teachers', route: routesMapping.OurTeachersRoute },
+        { label: 'Contact', route: routesMapping.ContactRoute },
     ]
 
     const activeUserStaticMenuIcons = [

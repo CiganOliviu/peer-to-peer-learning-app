@@ -4,7 +4,7 @@ import './HalfHeroCard.css'
 function HalfHeroCard({ imageUrl }) {
 
     return (
-        <div className="HalfHeroCard" style={{backgroundImage: `url(${imageUrl})`}}/>
+        <div className="HalfHeroCard" style={{ backgroundImage: `url(${imageUrl})` }}/>
     )
 }
 
