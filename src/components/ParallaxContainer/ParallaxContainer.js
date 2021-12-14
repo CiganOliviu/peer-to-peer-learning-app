@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from "react-router-dom";
 import { useCustomFetchHeroCard } from "../../backendApi/apiCalls";
-import { apiBaseURL } from "../../helpers/baseBackendUrl";
+import { apiBaseURL } from "../../backendApi/baseBackendUrl";
 import './ParallaxContainer.css'
 import { ParallaxButtonContent, ParallaxTitle } from "../../helpers/setHomePageContent";
 import { routesMapping } from "../../helpers/routesMapping";

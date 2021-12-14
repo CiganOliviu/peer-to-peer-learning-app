@@ -1,4 +1,4 @@
-import { apiBaseURL } from "../helpers/baseBackendUrl";
+import { apiBaseURL } from "./baseBackendUrl";
 
 const baseMathematicsURL = `${apiBaseURL}/mathematics`;
 const baseRomanianURL = `${apiBaseURL}/romanian`;

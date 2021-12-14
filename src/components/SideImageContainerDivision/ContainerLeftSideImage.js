@@ -18,7 +18,7 @@ function ContainerLeftSideImage({ iphone }) {
 
             <div data-aos="fade-right" className="FlexChild Image">
                 <div className="LeftSideImage">
-                    <video muted autoPlay loop>
+                    <video muted autoPlay loop style={{ pointerEvents: 'none' }}>
                         <source src={ iphone } type="video/mp4" />
                     </video>
                 </div>

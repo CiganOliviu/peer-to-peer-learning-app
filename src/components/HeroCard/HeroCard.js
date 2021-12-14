@@ -3,7 +3,7 @@ import { useCustomFetchHeroCard } from '../../backendApi/apiCalls'
 import { Link } from 'react-router-dom';
 import { getUserInfoParse } from "../../helpers/localStorage";
 import { scrollToRef } from "../../helpers/refScroller";
-import { apiBaseURL } from "../../helpers/baseBackendUrl";
+import { apiBaseURL } from "../../backendApi/baseBackendUrl";
 import { routesMapping } from "../../helpers/routesMapping";
 import "aos/dist/aos.css"
 import './HeroCard.css'
