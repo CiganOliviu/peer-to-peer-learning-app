@@ -3,7 +3,7 @@ import { asyncHandleContact, useCustomFetchStaff } from "../../backendApi/apiCal
 import RenderStaff from "../../components/StaffContainer/RenderStaff/RenderStaff";
 import { createBrowserHistory } from "history";
 import SocialMediaSection from "../../components/SocialMediaSection/SocialMediaSection";
-import { pagesClassesMapping } from "../../helpers/classesMapping";
+import { appClassesMapping, pagesClassesMapping } from "../../helpers/classesMapping";
 import './ContactPage.css';
 
 function ContactPage() {
@@ -70,51 +70,51 @@ function ContactPage() {
 
     return (
         <div className={ pagesClassesMapping.ContactPageClass }>
-            <div className="SpaceForPhone" />
-            <div className="BreathingSpaceMedium" />
+            <div className={ appClassesMapping.SpaceForPhoneClass} />
+            <div className={ appClassesMapping.BreathingSpaceMediumClass } />
             <h1>We are One Click Away</h1>
-            <div className="BreathingSpaceSmall" />
-            <div className="FlexContainer">
+            <div className={ appClassesMapping.BreathingSpaceSmallClass } />
+            <div className={ appClassesMapping.FlexContainerClass }>
             {
                 staff.map((data) => {
                     return isPersonToContact(data) ? <RenderStaff data={ data } url={ url } /> : <></>;
                 })
             }
             </div>
-            <div className="Form">
-                <div className="SpaceForPhone" />
+            <div className={ appClassesMapping.FormClass }>
+                <div className={ appClassesMapping.SpaceForPhoneClass } />
                 <h1>Contact us via this form!</h1>
-                <div className="BreathingSpaceMedium" />
+                <div className={ appClassesMapping.BreathingSpaceMediumClass } />
                 <input type="text" placeholder="Nume" onChange = { event => setFirstName(event?.target?.value) } />
-                <div className="Padding" />
+                <div className={ appClassesMapping.PaddingClass } />
                 <input type="text" placeholder="Prenume" onChange = { event => setLastName(event?.target?.value) } />
-                <div className="Padding" />
+                <div className={ appClassesMapping.PaddingClass } />
                 <input type="text" placeholder="Email" onChange = { event => setEmail(event?.target?.value) } />
-                <div className="Padding" />
+                <div className={ appClassesMapping.PaddingClass } />
                 <input type="text" placeholder="Subiect" onChange = { event => setSubject(event?.target?.value) } />
-                <div className="Padding" />
+                <div className={ appClassesMapping.PaddingClass } />
                 <input type="text" placeholder="Numar de telefon" onChange = { event => setPhoneNumber(event?.target?.value) } />
-                <div className="Padding" />
+                <div className={ appClassesMapping.PaddingClass } />
                 <select onChange = {event => setClientType(event?.target?.value)} >
                     <option value="">Esti profesor sau elev?</option>
                     <option value="Profesor">Profesor</option>
                     <option value="Elev">Elev</option>
                 </select>
-                <div className="Padding" />
+                <div className={ appClassesMapping.PaddingClass } />
                 <textarea rows="5" placeholder="Mesaj" onChange = { event => setMessage(event?.target?.value) }/>
 
-                <div className="Padding"/>
+                <div className={ appClassesMapping.PaddingClass }/>
                 { errorMessage && <div className="Error"><b>{ errorMessage }</b></div> }
 
-                <div className="Padding"/>
-                <button className="Active" onClick={handleContact} >Send your message</button>
+                <div className={ appClassesMapping.PaddingClass } />
+                <button className={ appClassesMapping.ActiveClass } onClick={ handleContact } >Send your message</button>
             </div>
-            <div className="Padding"/>
-            <div className="GrayWallpaperClipDown">
+            <div className={ appClassesMapping.PaddingClass } />
+            <div className={ appClassesMapping.GrayWallpaperClipDownClass }>
                 <SocialMediaSection isDataAos={ false }/>
             </div>
-            <div className="BreathingSpaceSmall" />
-            <div className="SpaceForPhone" />
+            <div className={ appClassesMapping.BreathingSpaceSmallClass } />
+            <div className={ appClassesMapping.SpaceForPhoneClass } />
         </div>
     )
 }

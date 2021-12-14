@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useCustomFetchStaff } from "../../backendApi/apiCalls";
 import RenderStaff from "../../components/StaffContainer/RenderStaff/RenderStaff";
-import { pagesClassesMapping } from "../../helpers/classesMapping";
+import {appClassesMapping, pagesClassesMapping} from "../../helpers/classesMapping";
 
 function OurTeamPage() {
 
@@ -21,8 +21,8 @@ function OurTeamPage() {
 
     return (
         <div className={ pagesClassesMapping.StaffTeamPageClass }>
-            <div className="BreathingSpaceSmall"/>
-            <div className="FlexContainer">
+            <div className={ appClassesMapping.BreathingSpaceSmallClass } />
+            <div className={ appClassesMapping.FlexContainerClass }>
                 {
                     staff.map((data) => {
                         return <RenderStaff data={ data } url={ url } />;

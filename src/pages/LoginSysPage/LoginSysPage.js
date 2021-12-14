@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useHistory, Redirect } from "react-router-dom";
 import { asyncHandleLogin } from "../../backendApi/apiCalls";
 import { getUserInfoParse, isUserDataValid, LOCAL_STORAGE_KEYS } from "../../helpers/localStorage";
-import { pagesClassesMapping } from "../../helpers/classesMapping";
+import { appClassesMapping, pagesClassesMapping } from "../../helpers/classesMapping";
 import './LoginSysPage.css';
 
 function LoginSysPage() {
@@ -51,24 +51,24 @@ function LoginSysPage() {
 
     return (
         <div className={ pagesClassesMapping.LoginSysPageClass }>
-            <div className="Form">
+            <div className={ appClassesMapping.FormClass }>
                 <h1>Login</h1>
-                <div className="Padding"/>
+                <div className={ appClassesMapping.PaddingClass }/>
 
                 <input type="text" placeholder="username" onChange = { event => setUsername(event.target.value) } />
-                <div className="Padding"/>
+                <div className={ appClassesMapping.PaddingClass }/>
 
                 <input type="password" placeholder="password" onChange = { event => setPassword(event.target.value) } />
-                <div className="Padding"/>
+                <div className={ appClassesMapping.PaddingClass }/>
 
-                <div className="Padding"/>
+                <div className={ appClassesMapping.PaddingClass }/>
 
                 { errorMessage && <div className="Error"><b>{errorMessage}</b></div> }
                 <br/>
 
                 <div className="flex">
-                    <button type="submit" className="Active" onClick = { handleLogin }>Login</button>
-                    <button type="submit" className="BorderedButton" onClick = { handleAsGuest }>Go as Guest</button>
+                    <button type="submit" className={ appClassesMapping.ActiveClass } onClick = { handleLogin }>Login</button>
+                    <button type="submit" className={ appClassesMapping.BorderedButtonClass } onClick = { handleAsGuest }>Go as Guest</button>
                 </div>
             </div>
         </div>

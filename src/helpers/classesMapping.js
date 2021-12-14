@@ -11,3 +11,20 @@ export const pagesClassesMapping = {
     TeacherDetailsPageClass: 'TeacherDetails',
     UserPageClass: 'UserPage',
 }
+
+export const appClassesMapping = {
+    SpaceForPhoneClass: 'SpaceForPhone',
+    BreathingSpaceMediumClass: 'BreathingSpaceMedium',
+    BreathingSpaceSmallClass: 'BreathingSpaceSmall',
+    BreathingSpaceHugeClass: 'BreathingSpaceHuge',
+    FlexContainerClass: 'FlexContainer',
+    ClipUpWallpaperClass: 'ClipUpWallpaper',
+    GrayWallpaperClipDownClass: 'GrayWallpaperClipDown',
+    FormClass: 'Form',
+    PaddingClass: 'Padding',
+    SpaceForLargeBreakPointClass: 'SpaceForLargeBreakPoint',
+    ActiveClass: 'Active',
+    BorderedButtonClass: 'BorderedButton',
+    MediumPaddingClass: 'MediumPadding',
+    SmallPaddingClass: 'SmallPadding',
+}

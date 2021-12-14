@@ -1,6 +1,7 @@
 import React from 'react'
 import { apiBaseURL } from "../../backendApi/baseBackendUrl";
 import './SpecificDataCalls.css'
+import { appClassesMapping } from "../../helpers/classesMapping";
 
 function GetEssentialStaffMemberData({ member }) {
 
@@ -21,7 +22,7 @@ function GetEssentialStaffMemberData({ member }) {
                 <div>&nbsp;</div>
                 <h3>{ member?.position?.name }</h3>
             </div>
-            <div className="BreathingSpaceSmall"/>
+            <div className={ appClassesMapping.BreathingSpaceSmallClass } />
             <div className="Cell">
                 <p className="ShineMessage"><b>Email</b></p>
                 <p>{ member?.email }</p>

@@ -1,4 +1,5 @@
 import React from 'react'
+import { appClassesMapping } from "../../helpers/classesMapping";
 
 function DisplayExpectations({ index, data }) {
 
@@ -29,7 +30,7 @@ function DisplayExpectations({ index, data }) {
                 <div>&nbsp;</div>
                 <p>{ data?.done }</p>
                 <div>&nbsp;</div>
-                <div className="BreathingSpaceSmall" />
+                <div className={ appClassesMapping.BreathingSpaceSmallClass } />
                 <div className="Border"/>
         </div>
     )

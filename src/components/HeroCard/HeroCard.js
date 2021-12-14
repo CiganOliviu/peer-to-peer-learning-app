@@ -1,12 +1,13 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react';
 import { useCustomFetchHeroCard } from '../../backendApi/apiCalls'
 import { Link } from 'react-router-dom';
 import { getUserInfoParse } from "../../helpers/localStorage";
 import { scrollToRef } from "../../helpers/refScroller";
 import { apiBaseURL } from "../../backendApi/baseBackendUrl";
 import { routesMapping } from "../../helpers/routesMapping";
-import "aos/dist/aos.css"
-import './HeroCard.css'
+import "aos/dist/aos.css";
+import './HeroCard.css';
+import { appClassesMapping } from "../../helpers/classesMapping";
 
 function HeroCard({ introRef }) {
 
@@ -29,7 +30,7 @@ function HeroCard({ introRef }) {
 
     return (
         <div className="HeroContainer" style={{ backgroundImage: `url(${apiBaseURL}${heroCardDetails?.image})` }}>
-            <div className="SmallPadding" />
+            <div className={ appClassesMapping.SmallPaddingClass } />
 
             <div className="WelcomeMessage" style={{ overflowX: 'hidden', }} >
                 <h1 data-aos="zoom-in">{ heroCardDetails?.title }</h1>

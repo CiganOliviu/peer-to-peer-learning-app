@@ -14,7 +14,7 @@ import HalfHeroCard from "../../components/HalfHeroCard/HalfHeroCard";
 import schedule from './Images/schedule.jpeg';
 import { Redirect } from "react-router-dom";
 import './Schedule.css';
-import { pagesClassesMapping } from "../../helpers/classesMapping";
+import { appClassesMapping, pagesClassesMapping } from "../../helpers/classesMapping";
 
 function SchedulePage() {
 
@@ -114,7 +114,7 @@ function SchedulePage() {
                 <RenderSchedules data = { userScheduleRomanian } userGroup = { userRomanianGroup }
                                  classObject = { "Schedule Romana" }/>
             </div>
-            <div className="SpaceForPhone"/>
+            <div className={ appClassesMapping.SpaceForPhoneClass } />
         </div>
     )
 }

@@ -13,6 +13,7 @@ import {
     setItemTwoLink,
     setItemTwoTitle
 } from "../../helpers/setSocialMediaContent";
+import { appClassesMapping } from "../../helpers/classesMapping";
 
 function SocialMediaSection({ isDataAos }) {
 
@@ -20,9 +21,9 @@ function SocialMediaSection({ isDataAos }) {
 
     return (
         <div className="SocialMediaPresence">
-            <div className="BreathingSpaceSmall"/>
+            <div className={ appClassesMapping.BreathingSpaceSmallClass } />
             <h1 data-aos={ animationOnScroll }>Check us out on</h1>
-            <div className="BreathingSpaceSmall"/>
+            <div className={ appClassesMapping.BreathingSpaceSmallClass } />
             <div className="FlexSocialMediaPresence">
                 <div data-aos={ animationOnScroll } className="FlexSocialMediaChild">
                     <p><b>{ setItemOneTitle }</b></p>

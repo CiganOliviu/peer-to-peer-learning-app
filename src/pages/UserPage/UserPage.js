@@ -13,7 +13,7 @@ import GetTeacherSpecificData from "../../components/GetSpecificData/GetTeacherS
 import GetLinksForTeacher from "../../components/GetLinksForTeacher/GetLinksForTeacher";
 import DisplayExpectations from "../../components/DisplayExpectations/DisplayExpectations";
 import './UserPage.css';
-import { pagesClassesMapping } from "../../helpers/classesMapping";
+import { appClassesMapping, pagesClassesMapping } from "../../helpers/classesMapping";
 
 function UserPage() {
 
@@ -106,7 +106,7 @@ function UserPage() {
 
     return (
         <div className={ pagesClassesMapping.UserPageClass } >
-            <div className="FlexContainer">
+            <div className={ appClassesMapping.FlexContainerClass }>
                 <div className="FlexChild">
                     {
                         clientDetails.map((data) => {
@@ -138,7 +138,7 @@ function UserPage() {
                     <div className="Cell">
                         <Link to="/feedback" className="ShineMessageLink"><b>Leave a feedback, your opinion matters!</b></Link>
                     </div>
-                    <div className="BreathingSpaceSmall" />
+                    <div className={ appClassesMapping.BreathingSpaceSmallClass } />
                     <div className="Border"/>
                 </div>
                 <div className="FlexChild">
@@ -180,7 +180,7 @@ function UserPage() {
                 </div>
             </div>
 
-            <div className="SpaceForPhone"/>
+            <div className={ appClassesMapping.SpaceForPhoneClass } />
         </div>
     )
 }

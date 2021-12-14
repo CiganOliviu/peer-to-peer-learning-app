@@ -3,11 +3,12 @@ import { ExternalLink } from "react-external-link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { appClassesMapping } from "../../helpers/classesMapping";
 
 function GetSocialDetails({ socialMediaData }) {
     return (
         <div>
-            <div className="BreathingSpaceSmall" />
+            <div className={ appClassesMapping.BreathingSpaceSmallClass } />
             <div className="social-details">
                 <div className="FlexContainerLink">
                     <div className="FlexChildLink">

@@ -1,5 +1,6 @@
 import React from 'react'
 import './ThreeImagesContainer.css'
+import { appClassesMapping } from "../../helpers/classesMapping";
 
 function ThreeImagesContainer({ imageLeft, imageCenter, imageRight,
                                 titleLeft, titleCenter, titleRight,
@@ -7,7 +8,7 @@ function ThreeImagesContainer({ imageLeft, imageCenter, imageRight,
                               }) {
 
     return (
-        <div className="FlexContainer" style={{ overflowX: 'hidden', }}>
+        <div className={ appClassesMapping.FlexContainerClass } style={{ overflowX: 'hidden', }}>
             <div className="FlexChild">
                 <div data-aos="fade-right" className="GradientImage">
                     <img src={ imageLeft } alt="{ imageLeft }"/>

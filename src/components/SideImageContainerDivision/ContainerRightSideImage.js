@@ -10,11 +10,12 @@ import {
     NewNormWhyReasonThree,
     NewNormWhyReasonTwo
 } from "../../helpers/setHomePageContent";
+import { appClassesMapping } from "../../helpers/classesMapping";
 
 function ContainerLeftSideImage({ mac }) {
 
     return (
-        <div className="FlexContainer" style={{ overflowX: 'hidden', alignItems: 'center', justifyContent: 'center' }}>
+        <div className={ appClassesMapping.FlexContainerClass } style={{ overflowX: 'hidden', alignItems: 'center', justifyContent: 'center' }}>
 
             <div data-aos="fade-right" className="FlexChild Text">
                 <h2><b>{ NewNormTitle }</b></h2>

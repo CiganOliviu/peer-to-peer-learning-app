@@ -10,7 +10,7 @@ import HalfHeroCard from "../../components/HalfHeroCard/HalfHeroCard";
 import homeworks from './Images/homeworks.jpeg'
 import { Redirect } from "react-router-dom";
 import './Homeworks.css'
-import {pagesClassesMapping} from "../../helpers/classesMapping";
+import {appClassesMapping, pagesClassesMapping} from "../../helpers/classesMapping";
 
 function HomeworksPage() {
 
@@ -110,7 +110,7 @@ function HomeworksPage() {
                 <RenderHomeworks data = { userHomeworkRomanian } userGroup = { userRomanianGroup }
                                  classObject = { "Romana" }/>
 
-                <div className="SpaceForPhone"/>
+                <div className={ appClassesMapping.SpaceForPhoneClass }/>
             </div>
         </div>
     )

@@ -17,7 +17,7 @@ import {
     FeedbackTitle, TeamWorkContent,
     TeamWorkTitle
 } from "../../helpers/setHomePageContent";
-import { pagesClassesMapping } from "../../helpers/classesMapping";
+import { appClassesMapping, pagesClassesMapping } from "../../helpers/classesMapping";
 import './HomePage.css';
 
 function HomePage() {
@@ -28,16 +28,16 @@ function HomePage() {
         <div className={ pagesClassesMapping.HomePageClass }>
             <HeroCard introRef = { introRef } />
 
-            <div className="ClipUpWallpaper" ref = { introRef }>
+            <div className={ appClassesMapping.ClipUpWallpaperClass } ref = { introRef }>
                 <ContainerLeftSideImage iphone = { iphoneAnimationScroller } />
             </div>
 
-            <div className="GrayWallpaperClipDown">
-                <div className="BreathingSpaceSmall" />
+            <div className={ appClassesMapping.GrayWallpaperClipDownClass }>
+                <div className={ appClassesMapping.BreathingSpaceSmallClass } />
                 <ContainerRightSideImage mac = { macPresentation } />
-                <div className="BreathingSpaceSmall" />
+                <div className={ appClassesMapping.BreathingSpaceSmallClass } />
             </div>
-            <div className="BreathingSpaceSmall" />
+            <div className={ appClassesMapping.BreathingSpaceSmallClass } />
             <ThreeImagesContainer imageLeft = { guidance }
                                   imageCenter = { focusOnStudent }
                                   imageRight = { teamWork }
@@ -48,12 +48,12 @@ function HomePage() {
                                   contentCenter = { FeedbackContent }
                                   contentRight = { TeamWorkContent }
             />
-            <div className="BreathingSpaceSmall" />
+            <div className={ appClassesMapping.BreathingSpaceSmallClass } />
             <ParallaxContainer />
-            <div className="BreathingSpaceSmall" />
+            <div className={ appClassesMapping.BreathingSpaceSmallClass } />
             <SocialMediaSection isDataAos={ true }/>
-            <div className="BreathingSpaceSmall" />
-            <div className="SpaceForPhone"/>
+            <div className={ appClassesMapping.BreathingSpaceSmallClass } />
+            <div className={ appClassesMapping.SpaceForPhoneClass }/>
         </div>
     )
 }
