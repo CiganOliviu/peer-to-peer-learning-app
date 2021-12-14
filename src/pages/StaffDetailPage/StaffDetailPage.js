@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useCustomFetchStaffDetail } from "../../utils/apiCalls";
+import { useCustomFetchStaffDetail } from "../../backendApi/apiCalls";
 import { useParams } from "react-router-dom";
 import GetEssentialStaffMemberData from "../../components/GetSpecificData/GetEssentialStaffMemberData";
 import GetAuxStaffMemberData from "../../components/GetSpecificData/GetAuxStaffMemberData";

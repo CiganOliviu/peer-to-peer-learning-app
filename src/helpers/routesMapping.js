@@ -1,6 +1,5 @@
 export const routesMapping = {
     HomeRoute: '/',
-    DocxRoute: '/docx',
     OurTeamRoute: '/our-team',
     OurTeachersRoute: '/our-teachers',
     HomeworksRoute: '/homeworks',

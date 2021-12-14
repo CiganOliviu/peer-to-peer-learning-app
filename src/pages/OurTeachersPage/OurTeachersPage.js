@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useCustomFetchTeacher } from "../../utils/apiCalls"
+import { useCustomFetchTeacher } from "../../backendApi/apiCalls"
 import RenderStaff from "../../components/StaffContainer/RenderStaff/RenderStaff";
 
 function OurTeachersPage() {

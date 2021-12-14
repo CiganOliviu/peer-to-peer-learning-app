@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useHistory, Redirect } from "react-router-dom";
-import { asyncHandleLogin } from "../../utils/apiCalls";
-import { getUserInfoParse, isUserDataValid, LOCAL_STORAGE_KEYS } from "../../utils/localStorage";
+import { asyncHandleLogin } from "../../backendApi/apiCalls";
+import { getUserInfoParse, isUserDataValid, LOCAL_STORAGE_KEYS } from "../../helpers/localStorage";
 
 import './LoginSysPage.css'
 

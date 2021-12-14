@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
-import { asyncHandleFeedback, useCustomFetchTeacher } from "../../utils/apiCalls";
+import { asyncHandleFeedback, useCustomFetchTeacher } from "../../backendApi/apiCalls";
 import { createBrowserHistory } from 'history';
-import { getUserInfoParse } from "../../utils/localStorage";
+import { getUserInfoParse } from "../../helpers/localStorage";
 import './Feedback.css'
 
 function Feedback() {

@@ -1,5 +1,5 @@
 import React from 'react'
-import { apiBaseURL } from "../../../utils/baseUrls";
+import { apiBaseURL } from "../../../backendApi/baseBackendUrl";
 import { useHistory } from "react-router-dom";
 import GetSocialDetails from "../../GetSocialDetails/GetSocialDetails";
 import '../StaffContainer.css'

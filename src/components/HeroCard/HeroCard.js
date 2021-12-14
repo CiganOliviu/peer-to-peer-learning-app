@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react'
-import { useCustomFetchHeroCard } from '../../utils/apiCalls'
+import { useCustomFetchHeroCard } from '../../backendApi/apiCalls'
 import { Link } from 'react-router-dom';
-import { getUserInfoParse } from "../../utils/localStorage";
-import { scrollToRef } from "../../utils/refScroller";
-import { apiBaseURL } from "../../utils/baseUrls";
-
+import { getUserInfoParse } from "../../helpers/localStorage";
+import { scrollToRef } from "../../helpers/refScroller";
+import { apiBaseURL } from "../../backendApi/baseBackendUrl";
+import { routesMapping } from "../../helpers/routesMapping";
 import "aos/dist/aos.css"
 import './HeroCard.css'
 
@@ -40,8 +40,8 @@ function HeroCard({ introRef }) {
 
                 <div className="HeroButtons" data-aos="zoom-in">
                     <Link to="#" onClick={ executeScrollIntro } className="NavigationButtons" id="MoreInfoButton">Read more!</Link>
-                    { !userInfo ? <Link to="/login" className="NavigationButtons" id="LoginButton">Login</Link> : <></> }
-                    <Link to="/contact" className="NavigationButtons" id="MoreInfoButton">Contact us!</Link>
+                    { !userInfo ? <Link to={ routesMapping.LoginRoute } className="NavigationButtons" id="LoginButton">Login</Link> : <></> }
+                    <Link to={ routesMapping.ContactRoute } className="NavigationButtons" id="MoreInfoButton">Contact us!</Link>
                 </div>
 
             </div>

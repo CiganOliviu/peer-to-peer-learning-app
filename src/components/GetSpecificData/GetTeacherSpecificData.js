@@ -1,5 +1,5 @@
 import React from 'react'
-import { apiBaseURL } from "../../utils/baseUrls";
+import { apiBaseURL } from "../../backendApi/baseBackendUrl";
 import './SpecificDataCalls.css'
 
 function GetTeacherSpecificData({ teacher }) {
