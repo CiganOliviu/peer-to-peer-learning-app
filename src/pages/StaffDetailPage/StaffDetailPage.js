@@ -3,6 +3,7 @@ import { useCustomFetchStaffDetail } from "../../backendApi/apiCalls";
 import { useParams } from "react-router-dom";
 import GetEssentialStaffMemberData from "../../components/GetSpecificData/GetEssentialStaffMemberData";
 import GetAuxStaffMemberData from "../../components/GetSpecificData/GetAuxStaffMemberData";
+import { pagesClassesMapping } from "../../helpers/classesMapping";
 
 function StaffDetailPage() {
 
@@ -20,7 +21,7 @@ function StaffDetailPage() {
     }, [serverErrorStaffDetail]);
 
     return (
-        <div className="TeacherDetails">
+        <div className={ pagesClassesMapping.TeacherDetailsPageClass }>
             <div className="FlexContainer">
                 <div className="FlexChild">
                     <div className="MediumPadding"/>

@@ -2,7 +2,8 @@ import React, {useEffect, useState} from 'react'
 import { asyncHandleFeedback, useCustomFetchTeacher } from "../../backendApi/apiCalls";
 import { createBrowserHistory } from 'history';
 import { getUserInfoParse } from "../../helpers/localStorage";
-import './Feedback.css'
+import { pagesClassesMapping } from "../../helpers/classesMapping";
+import './Feedback.css';
 
 function Feedback() {
 
@@ -63,7 +64,7 @@ function Feedback() {
         history.push('/login')
 
     return (
-        <div className="FeedbackSys">
+        <div className={ pagesClassesMapping.FeedbackSysPageClass }>
             <div className="Form">
                 <h1>Feedback</h1>
                 <div className="Padding"/>

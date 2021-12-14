@@ -3,6 +3,7 @@ import { useCustomFetchFeedbackGet, useCustomFetchTeacherDetail } from "../../ba
 import { useParams } from "react-router-dom";
 import RenderUserFeedback from "../../components/RenderUserFeedback/RenderUserFeedback";
 import GetTeacherSpecificData from "../../components/GetSpecificData/GetTeacherSpecificData";
+import {pagesClassesMapping} from "../../helpers/classesMapping";
 
 function TeachersDetailPage() {
 
@@ -36,7 +37,7 @@ function TeachersDetailPage() {
              serverErrorFeedbackGet]);
 
     return (
-        <div className="TeacherDetails">
+        <div className={ pagesClassesMapping.TeacherDetailsPageClass }>
             <div className="FlexContainer">
                 <div className="FlexChild">
                     <div className="MediumPadding"/>

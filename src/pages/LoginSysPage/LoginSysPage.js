@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import { useHistory, Redirect } from "react-router-dom";
 import { asyncHandleLogin } from "../../backendApi/apiCalls";
 import { getUserInfoParse, isUserDataValid, LOCAL_STORAGE_KEYS } from "../../helpers/localStorage";
-
-import './LoginSysPage.css'
+import { pagesClassesMapping } from "../../helpers/classesMapping";
+import './LoginSysPage.css';
 
 function LoginSysPage() {
 
@@ -50,7 +50,7 @@ function LoginSysPage() {
     if (userInfo) return <Redirect to="/" />
 
     return (
-        <div className="LoginSys">
+        <div className={ pagesClassesMapping.LoginSysPageClass }>
             <div className="Form">
                 <h1>Login</h1>
                 <div className="Padding"/>

@@ -10,6 +10,7 @@ import HalfHeroCard from "../../components/HalfHeroCard/HalfHeroCard";
 import homeworks from './Images/homeworks.jpeg'
 import { Redirect } from "react-router-dom";
 import './Homeworks.css'
+import {pagesClassesMapping} from "../../helpers/classesMapping";
 
 function HomeworksPage() {
 
@@ -99,7 +100,7 @@ function HomeworksPage() {
     return (
         <div>
             <HalfHeroCard imageUrl = { homeworks } />
-            <div className="Homeworks">
+            <div className={ pagesClassesMapping.HomeworksPageClass }>
                 <h1>{ userInfo.user.first_name }, Aici sunt listate temele tale!</h1>
 
                 <RenderHomeworks data = { userHomeworkInformatics } userGroup = { userInformaticsGroup }

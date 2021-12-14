@@ -1,9 +1,10 @@
-import React, {useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react';
 import { asyncHandleContact, useCustomFetchStaff } from "../../backendApi/apiCalls";
 import RenderStaff from "../../components/StaffContainer/RenderStaff/RenderStaff";
 import { createBrowserHistory } from "history";
 import SocialMediaSection from "../../components/SocialMediaSection/SocialMediaSection";
-import './ContactPage.css'
+import { pagesClassesMapping } from "../../helpers/classesMapping";
+import './ContactPage.css';
 
 function ContactPage() {
 
@@ -68,7 +69,7 @@ function ContactPage() {
     };
 
     return (
-        <div className="ContactPage">
+        <div className={ pagesClassesMapping.ContactPageClass }>
             <div className="SpaceForPhone" />
             <div className="BreathingSpaceMedium" />
             <h1>We are One Click Away</h1>

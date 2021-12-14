@@ -1,18 +1,19 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import { Link, Redirect } from "react-router-dom";
 import {
     useCustomFetchInformaticsGroups,
     useCustomFetchMathematicsGroups,
     useCustomFetchRomanianGroups,
     useCustomFetchClient, useCustomFetchTeacher, useCustomFetchTeacherExpectations, useCustomFetchStudentExpectations,
-} from '../../backendApi/apiCalls'
+} from '../../backendApi/apiCalls';
 import { getUserInfoParse } from "../../helpers/localStorage";
 import RenderClientGroup from "../../components/RenderClientGroup/RenderClientGroup";
 import GetClientSpecificData from "../../components/GetClientSpecificData/GetClientSpecificData";
 import GetTeacherSpecificData from "../../components/GetSpecificData/GetTeacherSpecificData";
 import GetLinksForTeacher from "../../components/GetLinksForTeacher/GetLinksForTeacher";
 import DisplayExpectations from "../../components/DisplayExpectations/DisplayExpectations";
-import './UserPage.css'
+import './UserPage.css';
+import { pagesClassesMapping } from "../../helpers/classesMapping";
 
 function UserPage() {
 
@@ -104,7 +105,7 @@ function UserPage() {
     let index = 0;
 
     return (
-        <div className="UserPage" >
+        <div className={ pagesClassesMapping.UserPageClass } >
             <div className="FlexContainer">
                 <div className="FlexChild">
                     {

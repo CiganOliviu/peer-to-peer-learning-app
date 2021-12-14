@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from 'react'
+import React, {useEffect, useRef, useState} from 'react';
 import { getUserInfoParse } from "../../helpers/localStorage";
 import {
     useCustomFetchInformaticsGroups,
@@ -11,9 +11,10 @@ import {
 import getClientGroup from "../../helpers/getClientGroup";
 import RenderSchedules from "../../components/RenderSchedules/RenderSchedules";
 import HalfHeroCard from "../../components/HalfHeroCard/HalfHeroCard";
-import schedule from './Images/schedule.jpeg'
+import schedule from './Images/schedule.jpeg';
 import { Redirect } from "react-router-dom";
-import './Schedule.css'
+import './Schedule.css';
+import { pagesClassesMapping } from "../../helpers/classesMapping";
 
 function SchedulePage() {
 
@@ -102,7 +103,7 @@ function SchedulePage() {
     return (
         <div>
             <HalfHeroCard imageUrl = { schedule }/>
-            <div className="Schedules">
+            <div className={ pagesClassesMapping.SchedulesPageClass }>
                 <h1>Schedule</h1>
                 <RenderSchedules data = { userScheduleInformatics } userGroup = { userInformaticsGroup }
                                  classObject = { "Schedule Informatica" } />
