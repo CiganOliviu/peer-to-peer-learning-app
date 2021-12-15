@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { getUserInfoParse } from "../../helpers/localStorage";
 import ShowSpecificButton from "../ShowSpecificButton/ShowSpecificButton";
-import './RenderHomeworks.css'
+import './RenderHomeworks.css';
+import { componentsClassesMapping } from "../../helpers/classesMapping";
 
 function SetValidHomework({ homework, classObject }) {
     return (
-        <div className="Homework">
-            <div className="HomeworkBorder"/>
+        <div className={ componentsClassesMapping.HomeworkClass } >
+            <div className={ componentsClassesMapping.HomeworkBorderClass } />
             <h2>{ homework?.title }</h2>
             <div>&nbsp;</div>
             <p>{ homework?.tips === "None" ? "Nu sunt indicatii la aceasta tema" : homework?.tips }</p>

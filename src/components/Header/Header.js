@@ -8,6 +8,7 @@ import { getUserInfoParse, LOCAL_STORAGE_KEYS  } from "../../helpers/localStorag
 import { Link, useHistory } from "react-router-dom";
 import Aos from "aos";
 import './Header.css'
+import {componentsClassesMapping} from "../../helpers/classesMapping";
 
 function Header() {
 
@@ -46,23 +47,26 @@ function Header() {
     })
 
     return (
-        <div className="Navigation">
+        <div className={ componentsClassesMapping.NavigationClass }>
             <header>
-                <ul className={ navbar ? "NormalNavigation Active" : "NormalNavigation Simple" }>
-                    <li className="Item ActiveMenuItem"><Link to="/" className="Logo">PeerToPeer</Link></li>
+                <ul className={ navbar ? componentsClassesMapping.NormalNavigationActiveClass :
+                    componentsClassesMapping.NormalNavigationSimpleClass }>
+                    <li className={ componentsClassesMapping.ItemActiveMenuClass }>
+                        <Link to="/" className={ componentsClassesMapping.LogoClass }>PeerToPeer</Link>
+                    </li>
                     <SetStaticNavigationItemsDesktop userInfo = { userInfo }/>
-                    <div className="ItemsRightAlign">
-                        <li className="Item">
-                            <div className="Dropdown">
-                                <Link to="#" className="User DropButton"><FontAwesomeIcon key='UserCircle' icon={ faUserCircle } /></Link>
-                                <div className="DropdownContent">
+                    <div className={ componentsClassesMapping.ItemsRightAlignClass }>
+                        <li className={ componentsClassesMapping.ItemClass }>
+                            <div className={ componentsClassesMapping.DropdownClass }>
+                                <Link to="#" className={ componentsClassesMapping.UserDropButtonClass }><FontAwesomeIcon key='UserCircle' icon={ faUserCircle } /></Link>
+                                <div className={ componentsClassesMapping.DropdownContentClass }>
                                     <SetUserSpecificMenuDropDown userInfo={ userInfo } logOut = { logOut }/>
                                 </div>
                             </div>
                         </li>
                     </div>
                 </ul>
-                <ul className="PhoneNavigation">
+                <ul className={ componentsClassesMapping.PhoneNavigationClass }>
                     <SetStaticNavigationItemsPhone userInfo = { userInfo }/>
                 </ul>
             </header>

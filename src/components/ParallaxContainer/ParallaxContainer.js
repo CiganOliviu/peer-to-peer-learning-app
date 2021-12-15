@@ -5,6 +5,7 @@ import { apiBaseURL } from "../../backendApi/baseBackendUrl";
 import './ParallaxContainer.css'
 import { ParallaxButtonContent, ParallaxTitle } from "../../helpers/setHomePageContent";
 import { routesMapping } from "../../helpers/routesMapping";
+import {componentsClassesMapping} from "../../helpers/classesMapping";
 
 function ParallaxContainer() {
 
@@ -23,11 +24,11 @@ function ParallaxContainer() {
     }, [serverErrorHeroCard])
 
     return (
-        <div className="ParallaxContainer" style={{ backgroundImage: standardHeroCardUrl }}>
-            <div data-aos="fade-in" className='ParallaxBackground'>
-                <div className='Gradient'>
+        <div className={ componentsClassesMapping.ParallaxContainerClass } style={{ backgroundImage: standardHeroCardUrl }}>
+            <div data-aos="fade-in" className={ componentsClassesMapping.ParallaxBackgroundClass }>
+                <div className={ componentsClassesMapping.GradientClass }>
                     <h1>{ ParallaxTitle }</h1>
-                    <Link to={ routesMapping.OurTeamRoute } className="NavigationButtons" id="MoreInfoButton">
+                    <Link to={ routesMapping.OurTeamRoute } className={ componentsClassesMapping.NavigationButtonsClass } id="MoreInfoButton">
                         { ParallaxButtonContent }
                     </Link>
                 </div>

@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import { getUserInfoParse } from "../../helpers/localStorage";
 import ShowSpecificButton from "../ShowSpecificButton/ShowSpecificButton";
 import './RenderSchedules.css'
+import { componentsClassesMapping } from "../../helpers/classesMapping";
 
 function SetValidSchedule({ schedule, classObject }) {
 
     return (
-        <div className="Schedule">
-            <div className="ScheduleBorder"/>
+        <div className={ componentsClassesMapping.ScheduleClass } >
+            <div className={ componentsClassesMapping.ScheduleBorderClass } />
             <h2>{ schedule?.course_title }</h2>
             <div>&nbsp;</div>
             <p>Data { schedule?.deadline_date }</p>

@@ -1,5 +1,6 @@
 import React from 'react'
 import './SpecificDataCalls.css'
+import { componentsClassesMapping } from "../../helpers/classesMapping";
 
 function GetAuxStaffMemberData({ member }) {
 
@@ -7,17 +8,17 @@ function GetAuxStaffMemberData({ member }) {
     memberDescription.replace(/(?:\r\n|\r|\n)/g, '<br />');
 
     return (
-        <div className="memberDetails">
-            <div className="Cell">
-                <p className="ShineMessage"><b>City</b></p>
+        <div className={ componentsClassesMapping.MemberDetailsClass }>
+            <div className={ componentsClassesMapping.CellClass }>
+                <p className={ componentsClassesMapping.ShineMessageClass }><b>City</b></p>
                 <p>{ member?.city?.name }</p>
             </div>
-            <div className="Cell">
-                <p className="ShineMessage"><b>Short description</b></p>
+            <div className={ componentsClassesMapping.CellClass }>
+                <p className={ componentsClassesMapping.ShineMessageClass }><b>Short description</b></p>
                 <p>{ member?.preview }</p>
             </div>
-            <div className="Cell">
-                <p className="ShineMessage"><b>Description</b></p>
+            <div className={ componentsClassesMapping.CellClass }>
+                <p className={ componentsClassesMapping.ShineMessageClass }><b>Description</b></p>
                 {
                     memberDescription.split('\n').map(function(item, key) {
                         return (

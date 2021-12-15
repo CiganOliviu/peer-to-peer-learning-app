@@ -13,14 +13,14 @@ import {
     setItemTwoLink,
     setItemTwoTitle
 } from "../../helpers/setSocialMediaContent";
-import { appClassesMapping } from "../../helpers/classesMapping";
+import {appClassesMapping, componentsClassesMapping} from "../../helpers/classesMapping";
 
 function SocialMediaSection({ isDataAos }) {
 
     const animationOnScroll = isDataAos ? "zoom-in-down" : "";
 
     return (
-        <div className="SocialMediaPresence">
+        <div className={ componentsClassesMapping.SocialMediaPresenceClass }>
             <div className={ appClassesMapping.BreathingSpaceSmallClass } />
             <h1 data-aos={ animationOnScroll }>Check us out on</h1>
             <div className={ appClassesMapping.BreathingSpaceSmallClass } />

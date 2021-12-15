@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronUp } from '@fortawesome/free-solid-svg-icons'
 import './ScrollTopButton.css'
+import { componentsClassesMapping } from "../../helpers/classesMapping";
 
 function ScrollTopButton() {
 
@@ -24,7 +25,7 @@ function ScrollTopButton() {
     window.addEventListener('scroll', toggleVisible);
 
     return (
-        <div className="ScrollButton" style={{display: visible ? 'inline' : 'none'}}>
+        <div className={ componentsClassesMapping.ScrollButtonClass } style={{display: visible ? 'inline' : 'none'}}>
             <FontAwesomeIcon onClick={scrollToTop}
                              key='ChevronUp' icon={ faChevronUp } />
         </div>

@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { routesMapping } from "../../helpers/routesMapping";
+import { componentsClassesMapping}  from "../../helpers/classesMapping";
 
 function SetStaticNavigationItemsDesktop({ userInfo }) {
 
@@ -21,7 +22,7 @@ function SetStaticNavigationItemsDesktop({ userInfo }) {
 
     return staticItems.map((item) => {
 
-        const classNameActive = location.pathname === item?.route ? "Item ActiveMenuItem PhoneHidden" : "Item PhoneHidden";
+        const classNameActive = location.pathname === item?.route ? componentsClassesMapping.ItemActiveMenuPhoneHiddenClass : componentsClassesMapping.ItemPhoneHiddenClass;
 
         return <li key={ item?.label } className={ classNameActive }><Link to={ item?.route}> { item?.label } </Link></li>
     })

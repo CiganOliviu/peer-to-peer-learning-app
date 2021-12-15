@@ -9,6 +9,7 @@ import {
     faUserCog, faPhone
 } from '@fortawesome/free-solid-svg-icons'
 import { routesMapping } from "../../helpers/routesMapping";
+import {componentsClassesMapping} from "../../helpers/classesMapping";
 
 function SetStaticNavigationItemsPhone({ userInfo }) {
 
@@ -43,7 +44,7 @@ function SetStaticNavigationItemsPhone({ userInfo }) {
     const menuIcons = userInfo ? activeUserStaticMenuIcons : inactiveUserStaticMenuIcons;
 
     return staticItems.map((item, index) => {
-        const classNameActive = location.pathname === item?.route ? "Item ActiveMenuItem" : "Item";
+        const classNameActive = location.pathname === item?.route ? componentsClassesMapping.ItemActiveMenuClass : componentsClassesMapping.ItemClass;
 
         return <li key={ item?.label} className={ classNameActive }>
                     <Link to={ item?.route }> { menuIcons[index] } <br/> { item?.label } </Link>

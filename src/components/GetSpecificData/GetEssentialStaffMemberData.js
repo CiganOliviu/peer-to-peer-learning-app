@@ -1,7 +1,7 @@
 import React from 'react'
 import { apiBaseURL } from "../../backendApi/baseBackendUrl";
 import './SpecificDataCalls.css'
-import { appClassesMapping } from "../../helpers/classesMapping";
+import { appClassesMapping, componentsClassesMapping } from "../../helpers/classesMapping";
 
 function GetEssentialStaffMemberData({ member }) {
 
@@ -9,7 +9,7 @@ function GetEssentialStaffMemberData({ member }) {
     memberDescription.replace(/(?:\r\n|\r|\n)/g, '<br />');
 
     return (
-        <div className="memberDetails">
+        <div className={ componentsClassesMapping.MemberDetailsClass }>
             <img src={`${apiBaseURL}${ member?.profile}`} alt={`${member?.first_name} 
             ${member?.last_name}`} />
 
@@ -17,18 +17,18 @@ function GetEssentialStaffMemberData({ member }) {
             <div className="Border"/>
             <div>&nbsp;</div>
 
-            <div className="Cell">
+            <div className={ componentsClassesMapping.CellClass } >
                 <h2>{ member?.last_name } { member?.first_name }</h2>
                 <div>&nbsp;</div>
                 <h3>{ member?.position?.name }</h3>
             </div>
             <div className={ appClassesMapping.BreathingSpaceSmallClass } />
-            <div className="Cell">
-                <p className="ShineMessage"><b>Email</b></p>
+            <div className={ componentsClassesMapping.CellClass } >
+                <p className={ componentsClassesMapping.ShineMessageClass }><b>Email</b></p>
                 <p>{ member?.email }</p>
             </div>
-            <div className="Cell">
-                <p className="ShineMessage"><b>Education</b></p>
+            <div className={ componentsClassesMapping.CellClass } >
+                <p className={ componentsClassesMapping.ShineMessageClass }><b>Education</b></p>
                 <p>{ member?.faculty?.university?.name }</p>
                 <p>{ member?.faculty?.name }</p>
             </div>
