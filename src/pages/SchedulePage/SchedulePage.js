@@ -5,13 +5,12 @@ import {
     useCustomFetchInformaticsSchedule,
     useCustomFetchMathematicsGroups,
     useCustomFetchMathematicsSchedule,
-    useCustomFetchRomanianGroups, useCustomFetchRomanianSchedule
+    useCustomFetchRomanianGroups, useCustomFetchRomanianSchedule, useCustomFetchScheduleCard
 } from "../../backendApi/apiCalls";
 
 import getClientGroup from "../../helpers/getClientGroup";
 import RenderSchedules from "../../components/RenderSchedules/RenderSchedules";
 import HalfHeroCard from "../../components/HalfHeroCard/HalfHeroCard";
-import schedule from './Images/schedule.jpeg';
 import { Redirect } from "react-router-dom";
 import './Schedule.css';
 import { appClassesMapping, pagesClassesMapping } from "../../helpers/classesMapping";
@@ -19,6 +18,9 @@ import { appClassesMapping, pagesClassesMapping } from "../../helpers/classesMap
 function SchedulePage() {
 
     const userInfo = getUserInfoParse();
+
+    const [scheduleCard, setScheduleCard] = useState(null);
+    const { serverErrorScheduleCard, apiDataScheduleCard } = useCustomFetchScheduleCard();
 
     const [informaticsGroups, setInformaticsGroups] = useState([]);
     const { serverErrorInformaticsGroups, apiDataInformaticsGroups } = useCustomFetchInformaticsGroups();
@@ -41,6 +43,11 @@ function SchedulePage() {
     const userInformaticsGroup = useRef("");
     const userMathematicsGroup = useRef("");
     const userRomanianGroup = useRef("");
+
+    useEffect(() => {
+        if (apiDataScheduleCard)
+            setScheduleCard(apiDataScheduleCard[Math.floor(Math.random() * apiDataScheduleCard?.length)]);
+    }, [apiDataScheduleCard])
 
     useEffect(() => {
         if (apiDataInformaticsGroups)
@@ -75,7 +82,8 @@ function SchedulePage() {
     useEffect(() => {
 
         const serverErrors = () => {
-            return serverErrorInformaticsGroups ||
+            return serverErrorScheduleCard ||
+                serverErrorInformaticsGroups ||
                 serverErrorMathematicsGroups ||
                 serverErrorRomanianGroups ||
                 serverErrorInformaticsSchedule ||
@@ -85,7 +93,8 @@ function SchedulePage() {
 
         if (serverErrors()) throw new Error("Fetch Error");
 
-    }, [serverErrorInformaticsGroups,
+    }, [serverErrorScheduleCard,
+             serverErrorInformaticsGroups,
              serverErrorMathematicsGroups,
              serverErrorRomanianGroups,
              serverErrorInformaticsSchedule,
@@ -102,7 +111,7 @@ function SchedulePage() {
 
     return (
         <div>
-            <HalfHeroCard imageUrl = { schedule }/>
+            <HalfHeroCard imageUrl = { scheduleCard?.image }/>
             <div className={ pagesClassesMapping.SchedulesPageClass }>
                 <h1>Schedule</h1>
                 <RenderSchedules data = { userScheduleInformatics } userGroup = { userInformaticsGroup }

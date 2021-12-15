@@ -1,13 +1,13 @@
 import React, {useEffect, useRef, useState} from 'react'
 import { getUserInfoParse } from "../../helpers/localStorage";
 import {
+    useCustomFetchHomeworkCard,
     useCustomFetchInformaticsGroups, useCustomFetchInformaticsHomework, useCustomFetchMathematicsGroups,
     useCustomFetchMathematicsHomework, useCustomFetchRomanianGroups, useCustomFetchRomanianHomework
 } from "../../backendApi/apiCalls";
 import getClientGroup from '../../helpers/getClientGroup';
 import RenderHomeworks from "../../components/RenderHomeworks/RenderHomeworks";
 import HalfHeroCard from "../../components/HalfHeroCard/HalfHeroCard";
-import homeworks from './Images/homeworks.jpeg'
 import { Redirect } from "react-router-dom";
 import './Homeworks.css'
 import {appClassesMapping, pagesClassesMapping} from "../../helpers/classesMapping";
@@ -15,6 +15,9 @@ import {appClassesMapping, pagesClassesMapping} from "../../helpers/classesMappi
 function HomeworksPage() {
 
     const userInfo = getUserInfoParse();
+
+    const [homeworkCard, setHomeworkCard] = useState(null);
+    const { serverErrorHomeworkCard, apiDataHomeworkCard } = useCustomFetchHomeworkCard();
 
     const [informaticsGroups, setInformaticsGroups] = useState([]);
     const { serverErrorInformaticsGroups, apiDataInformaticsGroups } = useCustomFetchInformaticsGroups();
@@ -37,6 +40,11 @@ function HomeworksPage() {
     const userInformaticsGroup = useRef("");
     const userMathematicsGroup = useRef("");
     const userRomanianGroup = useRef("");
+
+    useEffect(() => {
+        if (apiDataHomeworkCard)
+            setHomeworkCard(apiDataHomeworkCard[Math.floor(Math.random() * apiDataHomeworkCard?.length)]);
+    }, [ apiDataHomeworkCard ])
 
     useEffect(() => {
         if (apiDataInformaticsGroups)
@@ -72,7 +80,8 @@ function HomeworksPage() {
     useEffect(() => {
 
         const serverErrors = () => {
-            return serverErrorInformaticsGroups ||
+            return serverErrorHomeworkCard ||
+                serverErrorInformaticsGroups ||
                 serverErrorMathematicsGroups ||
                 serverErrorRomanianGroups ||
                 serverErrorInformaticsHomework ||
@@ -82,7 +91,8 @@ function HomeworksPage() {
 
         if (serverErrors()) throw new Error("Fetch Error");
 
-    }, [serverErrorInformaticsGroups,
+    }, [serverErrorHomeworkCard,
+            serverErrorInformaticsGroups,
              serverErrorMathematicsGroups,
              serverErrorRomanianGroups,
              serverErrorInformaticsHomework,
@@ -99,7 +109,7 @@ function HomeworksPage() {
 
     return (
         <div>
-            <HalfHeroCard imageUrl = { homeworks } />
+            <HalfHeroCard imageUrl = { homeworkCard?.image } />
             <div className={ pagesClassesMapping.HomeworksPageClass }>
                 <h1>{ userInfo.user.first_name }, Aici sunt listate temele tale!</h1>
 
