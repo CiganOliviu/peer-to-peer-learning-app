@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef } from "react";
 import { getUserInfoParse } from "../../helpers/localStorage";
 import ShowSpecificButton from "../ShowSpecificButton/ShowSpecificButton";
 import './RenderHomeworks.css';
@@ -28,23 +28,23 @@ function RenderHomeworks({ data, userGroup, classObject }) {
 
     const userInfo = getUserInfoParse();
 
-    const [hasUserHomework, setHasUserHomework] = useState(false);
-    const [hasTeacherHomework, setHasTeacherHomework] = useState(false);
+    const hasUserHomework = useRef(false);
+    const hasTeacherHomework = useRef(false);
 
-    const isHomeworkValid = (hasUserHomework, hasTeacherHomework, homework) => {
-        return (hasUserHomework || hasTeacherHomework) && (!homework?.dated);
+    const isHomeworkValid = (homework) => {
+        return (hasUserHomework.current || hasTeacherHomework.current) && (!homework?.dated);
     };
 
     return (
-        data.map((homework) => {
+        data?.map((homework) => {
             homework?.groups.forEach((group) => {
 
-                setHasTeacherHomework(homework?.teacher?.email === userInfo?.user?.email);
-                setHasUserHomework(group?.name === userGroup?.current);
+                hasTeacherHomework.current = (homework?.teacher?.email === userInfo?.user?.email);
+                hasUserHomework.current = (group?.name === userGroup?.current);
             })
 
-            return isHomeworkValid(hasUserHomework, hasTeacherHomework, homework) ?
-                <SetValidHomework item = { homework } classObject = { classObject } /> : <></>
+            return isHomeworkValid(homework) ?
+                <SetValidHomework homework = { homework } classObject = { classObject } /> : <></>
         })
     )
 }

@@ -86,7 +86,6 @@ function SchedulePage() {
                 serverErrorInformaticsGroups ||
                 serverErrorMathematicsGroups ||
                 serverErrorRomanianGroups ||
-                serverErrorInformaticsSchedule ||
                 serverErrorMathematicsSchedule ||
                 serverErrorRomanianSchedule;
         }
@@ -94,20 +93,20 @@ function SchedulePage() {
         if (serverErrors()) throw new Error("Fetch Error");
 
     }, [serverErrorScheduleCard,
-             serverErrorInformaticsGroups,
-             serverErrorMathematicsGroups,
-             serverErrorRomanianGroups,
-             serverErrorInformaticsSchedule,
-             serverErrorMathematicsSchedule,
-             serverErrorRomanianSchedule,
-            ])
+        serverErrorInformaticsGroups,
+        serverErrorMathematicsGroups,
+        serverErrorRomanianGroups,
+        serverErrorInformaticsSchedule,
+        serverErrorMathematicsSchedule,
+        serverErrorRomanianSchedule,
+        ])
 
     if (!userInfo)
         return <Redirect to="/login"/>
 
     getClientGroup(informaticsGroups, userInformaticsGroup, userInfo);
     getClientGroup(mathematicsGroups, userMathematicsGroup, userInfo);
-    getClientGroup(romanianGroups, userRomanianGroup, userInfo)
+    getClientGroup(romanianGroups, userRomanianGroup, userInfo);
 
     return (
         <div>
