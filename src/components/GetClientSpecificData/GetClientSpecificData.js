@@ -1,38 +1,39 @@
 import React from "react";
+import { componentsClassesMapping } from "../../helpers/classesMapping";
 
 function GetClientSpecificData({ clientInfo }) {
     return (
-        <div className="TeacherDetails">
+        <div className={ componentsClassesMapping.TeacherDetailsClass } >
             <div>&nbsp;</div>
-            <div className="Cell">
+            <div className={ componentsClassesMapping.CellClass }>
                 <h2>{ clientInfo?.first_name } { clientInfo?.last_name }</h2>
             </div>
             <div>&nbsp;</div>
             <div className="Border"/>
             <div>&nbsp;</div>
-            <div className="Cell">
+            <div className={ componentsClassesMapping.CellClass } >
                 <div>&nbsp;</div>
-                <p className="ShineMessage"><b>Email</b></p>
+                <p className={ componentsClassesMapping.ShineMessageClass }><b>Email</b></p>
                 <p>{ clientInfo?.email }</p>
             </div>
-            <div className="Cell">
+            <div className={ componentsClassesMapping.CellClass } >
                 <div>&nbsp;</div>
-                <p className="ShineMessage"><b>Phone</b></p>
+                <p className={ componentsClassesMapping.ShineMessageClass }><b>Phone</b></p>
                 <p>{ clientInfo?.phone_number }</p>
             </div>
-            <div className="Cell">
+            <div className={ componentsClassesMapping.CellClass } >
                 <div>&nbsp;</div>
-                <p className="ShineMessage"><b>High School</b></p>
+                <p className={ componentsClassesMapping.ShineMessageClass }><b>High School</b></p>
                 <p>{ clientInfo?.high_school?.name }</p>
             </div>
-            <div className="Cell">
+            <div className={ componentsClassesMapping.CellClass } >
                 <div>&nbsp;</div>
-                <p className="ShineMessage"><b>Profile</b></p>
+                <p className={ componentsClassesMapping.ShineMessageClass }><b>Profile</b></p>
                 <p>{ clientInfo?.high_school_profile?.profile }</p>
             </div>
-            <div className="Cell">
+            <div className={ componentsClassesMapping.CellClass } >
                 <div>&nbsp;</div>
-                <p className="ShineMessage"><b>City</b></p>
+                <p className={ componentsClassesMapping.ShineMessageClass }><b>City</b></p>
                 <p>{ clientInfo?.city?.name }</p>
             </div>
         </div>

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { useCustomFetchTeacher } from "../../utils/apiCalls"
+import { useCustomFetchTeacher } from "../../backendApi/apiCalls"
 import RenderStaff from "../../components/StaffContainer/RenderStaff/RenderStaff";
+import {appClassesMapping, pagesClassesMapping} from "../../helpers/classesMapping";
 
 function OurTeachersPage() {
 
@@ -18,9 +19,9 @@ function OurTeachersPage() {
     }, [serverErrorTeacher]);
 
     return (
-        <div className="TeachersTeam">
-            <div className="BreathingSpaceSmall" />
-            <div className="FlexContainer">
+        <div className={ pagesClassesMapping.TeachersTeamPageClass }>
+            <div className={ appClassesMapping.BreathingSpaceSmallClass } />
+            <div className={ appClassesMapping.FlexContainerClass }>
                 {
                     teacher.map((data) => {
                         return <RenderStaff data = { data } url = { url } />

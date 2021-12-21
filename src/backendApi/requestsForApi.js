@@ -1,4 +1,4 @@
-import { apiBaseURL } from "./baseUrls";
+import { apiBaseURL } from "./baseBackendUrl";
 
 const baseMathematicsURL = `${apiBaseURL}/mathematics`;
 const baseRomanianURL = `${apiBaseURL}/romanian`;
@@ -20,6 +20,8 @@ const requests = {
     fetchMathematicsDepartmentSchedule: `${baseMathematicsURL}/mathematics-schedule`,
     fetchRomanianDepartmentSchedule: `${baseRomanianURL}/romanian-schedule`,
     fetchHeroCardDetails: `${BaseAPIDependencies}/hero-card`,
+    fetchHomeworkCardDetails: `${BaseAPIDependencies}/homework-card`,
+    fetchScheduleCardDetails: `${BaseAPIDependencies}/schedule-card`,
     fetchStaff: `${baseStatsURL}/staff`,
     fetchStaffDetail: `${baseStatsURL}/staff/`,
     fetchClient: `${baseStatsURL}/client`,

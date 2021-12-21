@@ -1,8 +1,9 @@
 import React, {useEffect, useState} from 'react'
-import { asyncHandleFeedback, useCustomFetchTeacher } from "../../utils/apiCalls";
+import { asyncHandleFeedback, useCustomFetchTeacher } from "../../backendApi/apiCalls";
 import { createBrowserHistory } from 'history';
-import { getUserInfoParse } from "../../utils/localStorage";
-import './Feedback.css'
+import { getUserInfoParse } from "../../helpers/localStorage";
+import {appClassesMapping, pagesClassesMapping} from "../../helpers/classesMapping";
+import './Feedback.css';
 
 function Feedback() {
 
@@ -63,16 +64,16 @@ function Feedback() {
         history.push('/login')
 
     return (
-        <div className="FeedbackSys">
-            <div className="Form">
+        <div className={ pagesClassesMapping.FeedbackSysPageClass }>
+            <div className={ appClassesMapping.FormClass }>
                 <h1>Feedback</h1>
-                <div className="Padding"/>
+                <div className={ appClassesMapping.PaddingClass }/>
 
                 <input type="text" placeholder="Titlu" onChange = { event => setTitle(event?.target?.value) }/>
-                <div className="Padding"/>
+                <div className={ appClassesMapping.PaddingClass }/>
 
                 <textarea rows="4" placeholder="Mesaj" onChange = { event => setMessage(event?.target?.value) }/>
-                <div className="Padding"/>
+                <div className={ appClassesMapping.PaddingClass }/>
 
                 <div>&nbsp;</div>
                 <select onChange = { event => setTargetTeacher(event?.target?.value) }>
@@ -84,14 +85,14 @@ function Feedback() {
                     }
                 </select>
 
-                <div className="Padding"/>
+                <div className={ appClassesMapping.PaddingClass }/>
 
                 { errorMessage && <div className="Error"><b>{ errorMessage }</b></div> }
                 <br/>
 
                 <div className="flex">
-                    <button type="submit" className="Active" onClick = { handleFeedback }>Send feedback</button>
-                    <button type="submit" className="BorderedButton" onClick = { handleGoHomeButton }>Go Home</button>
+                    <button type="submit" className={ appClassesMapping.ActiveClass } onClick = { handleFeedback }>Send feedback</button>
+                    <button type="submit" className={ appClassesMapping.BorderedButtonClass } onClick = { handleGoHomeButton }>Go Home</button>
                 </div>
             </div>
         </div>

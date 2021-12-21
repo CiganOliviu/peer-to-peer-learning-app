@@ -1,23 +1,26 @@
-import React, {useEffect, useRef, useState} from 'react'
-import { getUserInfoParse } from "../../utils/localStorage";
+import React, {useEffect, useRef, useState} from 'react';
+import { getUserInfoParse } from "../../helpers/localStorage";
 import {
     useCustomFetchInformaticsGroups,
     useCustomFetchInformaticsSchedule,
     useCustomFetchMathematicsGroups,
     useCustomFetchMathematicsSchedule,
-    useCustomFetchRomanianGroups, useCustomFetchRomanianSchedule
-} from "../../utils/apiCalls";
+    useCustomFetchRomanianGroups, useCustomFetchRomanianSchedule, useCustomFetchScheduleCard
+} from "../../backendApi/apiCalls";
 
-import getClientGroup from "../../utils/getClientGroup";
+import getClientGroup from "../../helpers/getClientGroup";
 import RenderSchedules from "../../components/RenderSchedules/RenderSchedules";
 import HalfHeroCard from "../../components/HalfHeroCard/HalfHeroCard";
-import schedule from './Images/schedule.jpeg'
 import { Redirect } from "react-router-dom";
-import './Schedule.css'
+import './Schedule.css';
+import { appClassesMapping, pagesClassesMapping } from "../../helpers/classesMapping";
 
 function SchedulePage() {
 
     const userInfo = getUserInfoParse();
+
+    const [scheduleCard, setScheduleCard] = useState(null);
+    const { serverErrorScheduleCard, apiDataScheduleCard } = useCustomFetchScheduleCard();
 
     const [informaticsGroups, setInformaticsGroups] = useState([]);
     const { serverErrorInformaticsGroups, apiDataInformaticsGroups } = useCustomFetchInformaticsGroups();
@@ -40,6 +43,11 @@ function SchedulePage() {
     const userInformaticsGroup = useRef("");
     const userMathematicsGroup = useRef("");
     const userRomanianGroup = useRef("");
+
+    useEffect(() => {
+        if (apiDataScheduleCard)
+            setScheduleCard(apiDataScheduleCard[Math.floor(Math.random() * apiDataScheduleCard?.length)]);
+    }, [apiDataScheduleCard])
 
     useEffect(() => {
         if (apiDataInformaticsGroups)
@@ -74,35 +82,36 @@ function SchedulePage() {
     useEffect(() => {
 
         const serverErrors = () => {
-            return serverErrorInformaticsGroups ||
+            return serverErrorScheduleCard ||
+                serverErrorInformaticsGroups ||
                 serverErrorMathematicsGroups ||
                 serverErrorRomanianGroups ||
-                serverErrorInformaticsSchedule ||
                 serverErrorMathematicsSchedule ||
                 serverErrorRomanianSchedule;
         }
 
         if (serverErrors()) throw new Error("Fetch Error");
 
-    }, [serverErrorInformaticsGroups,
-             serverErrorMathematicsGroups,
-             serverErrorRomanianGroups,
-             serverErrorInformaticsSchedule,
-             serverErrorMathematicsSchedule,
-             serverErrorRomanianSchedule,
-            ])
+    }, [serverErrorScheduleCard,
+        serverErrorInformaticsGroups,
+        serverErrorMathematicsGroups,
+        serverErrorRomanianGroups,
+        serverErrorInformaticsSchedule,
+        serverErrorMathematicsSchedule,
+        serverErrorRomanianSchedule,
+        ])
 
     if (!userInfo)
         return <Redirect to="/login"/>
 
     getClientGroup(informaticsGroups, userInformaticsGroup, userInfo);
     getClientGroup(mathematicsGroups, userMathematicsGroup, userInfo);
-    getClientGroup(romanianGroups, userRomanianGroup, userInfo)
+    getClientGroup(romanianGroups, userRomanianGroup, userInfo);
 
     return (
         <div>
-            <HalfHeroCard imageUrl = { schedule }/>
-            <div className="Schedules">
+            <HalfHeroCard imageUrl = { scheduleCard?.image }/>
+            <div className={ pagesClassesMapping.SchedulesPageClass }>
                 <h1>Schedule</h1>
                 <RenderSchedules data = { userScheduleInformatics } userGroup = { userInformaticsGroup }
                                  classObject = { "Schedule Informatica" } />
@@ -113,7 +122,7 @@ function SchedulePage() {
                 <RenderSchedules data = { userScheduleRomanian } userGroup = { userRomanianGroup }
                                  classObject = { "Schedule Romana" }/>
             </div>
-            <div className="SpaceForPhone"/>
+            <div className={ appClassesMapping.SpaceForPhoneClass } />
         </div>
     )
 }

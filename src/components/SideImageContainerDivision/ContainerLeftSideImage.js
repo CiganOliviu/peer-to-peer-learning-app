@@ -1,41 +1,49 @@
 import React from 'react';
 import './SideImageContainerDivision.css'
+import {
+    OnlineFirstContainer,
+    OnlineSecondContainer,
+    OnlineThirdContainer,
+    OnlineTitle,
+    OnlineWhyReasonFour,
+    OnlineWhyReasonOne,
+    OnlineWhyReasonThree,
+    OnlineWhyReasonTwo
+} from "../../helpers/setHomePageContent";
+import { appClassesMapping } from "../../helpers/classesMapping";
 
 function ContainerLeftSideImage({ iphone }) {
 
     return (
-        <div className="FlexContainer" style={{ overflowX: 'hidden', alignItems: 'center', justifyContent: 'center' }}>
+        <div className={ appClassesMapping.FlexContainerClass } style={{ overflowX: 'hidden', alignItems: 'center', justifyContent: 'center' }}>
 
             <div data-aos="fade-right" className="FlexChild Image">
                 <div className="LeftSideImage">
-                    <video muted autoPlay loop>
+                    <video muted autoPlay loop style={{ pointerEvents: 'none' }}>
                         <source src={ iphone } type="video/mp4" />
                     </video>
                 </div>
             </div>
 
             <div data-aos="fade-left" className="FlexChild Text">
-                <h2><b>Ce inseamna ONLINE?</b></h2>
+                <h2><b>{ OnlineTitle }</b></h2>
                 <div>&nbsp;</div>
                 <p>
-                    Privind printr-un spectru pozitiv, pandemia a oferit oportunitatea de a introduce si rezona cu
-                    mediul de educatie online. Noi iti oferim posibilitatea de a te dezvolta intr-o ambianta familiara,
-                    prietenoasa, unde fiecare poate invata de la fiecare.
+                    { OnlineFirstContainer }
                 </p>
                 <br/>
                 <p>
-                    Cu o echipa formata din tineri studenti, scopul nostru este de a transmite mai departe informatia,
-                    beneficiind de o atmosfera cat mai relaxata.
+                    { OnlineSecondContainer }
                 </p>
                 <br/>
                 <p>
-                    Ce inseamna pentru noi, ONLINE?
+                    { OnlineThirdContainer }
                 </p>
                 <ul style={{ padding: '3%' }}>
-                    <li>Optimizarea si customizarea modului si metodelor de lucru.</li>
-                    <li>Eficientizarea timpului.</li>
-                    <li>Transformarea dorintelor/visurilor in actiuni.</li>
-                    <li>Placere de a invata.</li>
+                    <li>{ OnlineWhyReasonOne }</li>
+                    <li>{ OnlineWhyReasonTwo }</li>
+                    <li>{ OnlineWhyReasonThree }</li>
+                    <li>{ OnlineWhyReasonFour }</li>
                 </ul>
             </div>
         </div>

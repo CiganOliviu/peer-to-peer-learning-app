@@ -1,8 +1,9 @@
-import React from 'react'
-import { apiBaseURL } from "../../../utils/baseUrls";
+import React from 'react';
+import { apiBaseURL } from "../../../backendApi/baseBackendUrl";
 import { useHistory } from "react-router-dom";
 import GetSocialDetails from "../../GetSocialDetails/GetSocialDetails";
-import '../StaffContainer.css'
+import '../StaffContainer.css';
+import { appClassesMapping } from "../../../helpers/classesMapping";
 
 function RenderStaff({ data, url }) {
 
@@ -11,7 +12,7 @@ function RenderStaff({ data, url }) {
 
     return (
         <div className="FlexChild" data-aos="zoom-in">
-            <div className="SpaceForPhone" />
+            <div className={ appClassesMapping.SpaceForPhoneClass } />
             <div>
                 <div className="OurTeam" onClick={() => { history.push(`${url}${ data?.id }`) }} >
                     <img src={`${apiBaseURL}${ data?.profile}`} alt={ data?.profile }/>
@@ -34,8 +35,8 @@ function RenderStaff({ data, url }) {
                 </div>
             </div>
             { isNotTeacher && <GetSocialDetails socialMediaData = { data } /> }
-            { isNotTeacher && <div className="SpaceForLargeBreakPoint" /> }
-            <div className="SpaceForPhone" />
+            { isNotTeacher && <div className={ appClassesMapping.SpaceForLargeBreakPointClass } /> }
+            <div className={ appClassesMapping.SpaceForPhoneClass } />
         </div>
     )
 }

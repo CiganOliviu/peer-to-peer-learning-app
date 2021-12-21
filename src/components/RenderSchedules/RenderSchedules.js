@@ -1,13 +1,14 @@
-import React, { useState } from "react";
-import { getUserInfoParse } from "../../utils/localStorage";
+import React, { useRef } from "react";
+import { getUserInfoParse } from "../../helpers/localStorage";
 import ShowSpecificButton from "../ShowSpecificButton/ShowSpecificButton";
 import './RenderSchedules.css'
+import { componentsClassesMapping } from "../../helpers/classesMapping";
 
 function SetValidSchedule({ schedule, classObject }) {
 
     return (
-        <div className="Schedule">
-            <div className="ScheduleBorder"/>
+        <div className={ componentsClassesMapping.ScheduleClass } >
+            <div className={ componentsClassesMapping.ScheduleBorderClass } />
             <h2>{ schedule?.course_title }</h2>
             <div>&nbsp;</div>
             <p>Data { schedule?.deadline_date }</p>
@@ -26,20 +27,20 @@ function RenderSchedules({ data, userGroup, classObject }) {
 
     const userInfo = getUserInfoParse();
 
-    const [hasUserSchedule, setHasUserSchedule] = useState(false);
-    const [hasTeacherSchedule, setHasTeacherSchedule] = useState(false);
+    const hasUserSchedule = useRef(false);
+    const hasTeacherSchedule = useRef(false);
 
-    const isScheduleValid = (hasUserSchedule, hasTeacherSchedule, schedule) => {
+    const isScheduleValid = (schedule) => {
         return (hasUserSchedule || hasTeacherSchedule) && (!schedule?.dated);
     };
 
     return (
         data.map((schedule) => {
 
-            setHasTeacherSchedule(schedule?.teacher?.email === userInfo?.user?.email);
-            setHasUserSchedule(schedule?.group?.name === userGroup?.current);
+            hasTeacherSchedule.current = (schedule?.teacher?.email === userInfo?.user?.email);
+            hasUserSchedule.current = (schedule?.group?.name === userGroup?.current);
 
-            return isScheduleValid(hasUserSchedule, hasTeacherSchedule, schedule) ?
+            return isScheduleValid(schedule) ?
                 <SetValidSchedule schedule={ schedule } classObject={ classObject } /> : <></>
         })
     )

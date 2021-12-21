@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react'
-import { useCustomFetchFeedbackGet, useCustomFetchTeacherDetail } from "../../utils/apiCalls";
+import React, { useEffect, useState } from 'react';
+import { useCustomFetchFeedbackGet, useCustomFetchTeacherDetail } from "../../backendApi/apiCalls";
 import { useParams } from "react-router-dom";
 import RenderUserFeedback from "../../components/RenderUserFeedback/RenderUserFeedback";
 import GetTeacherSpecificData from "../../components/GetSpecificData/GetTeacherSpecificData";
+import { appClassesMapping, pagesClassesMapping } from "../../helpers/classesMapping";
 
 function TeachersDetailPage() {
 
@@ -36,10 +37,10 @@ function TeachersDetailPage() {
              serverErrorFeedbackGet]);
 
     return (
-        <div className="TeacherDetails">
-            <div className="FlexContainer">
+        <div className={ pagesClassesMapping.TeacherDetailsPageClass }>
+            <div className={ appClassesMapping.FlexContainerClass }>
                 <div className="FlexChild">
-                    <div className="MediumPadding"/>
+                    <div className={ appClassesMapping.MediumPaddingClass } />
                     <GetTeacherSpecificData teacher = { teacher } />
                 </div>
                 <div className="FlexChild">
@@ -49,7 +50,7 @@ function TeachersDetailPage() {
                 </div>
             </div>
 
-            <div className="SpaceForPhone"/>
+            <div className={ appClassesMapping.SpaceForPhoneClass }/>
         </div>
     )
 }

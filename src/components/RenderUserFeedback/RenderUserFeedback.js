@@ -1,15 +1,16 @@
 import React from "react";
+import { componentsClassesMapping } from "../../helpers/classesMapping";
 
 function SetValidFeedback({ data }) {
     return (
         <div>
-            <div className="Cell" style={{ textAlign: 'center', }}>
+            <div className={ componentsClassesMapping.CellClass } style={{ textAlign: 'center', }}>
                 <div>&nbsp;</div>
                 <p><b>{ data?.title }</b></p>
                 <p>{ data?.message }</p>
             </div>
             <div>&nbsp;</div>
-            <div className="Border"/>
+            <div className="Border" />
         </div>
     )
 }

@@ -112,6 +112,28 @@ const useCustomFetchHeroCard = () => {
 };
 
 
+const useCustomFetchHomeworkCard = () => {
+    const {
+        error: serverErrorHomeworkCard,
+        data: apiDataHomeworkCard,
+        isLoading: isLoadingHomeworkCard,
+    } = useCustomFetch(requests.fetchHomeworkCardDetails);
+
+    return { isLoadingHomeworkCard, serverErrorHomeworkCard, apiDataHomeworkCard };
+};
+
+
+const useCustomFetchScheduleCard = () => {
+    const {
+        error: serverErrorScheduleCard,
+        data: apiDataScheduleCard,
+        isLoading: isLoadingScheduleCard,
+    } = useCustomFetch(requests.fetchScheduleCardDetails);
+
+    return { isLoadingScheduleCard, serverErrorScheduleCard, apiDataScheduleCard };
+};
+
+
 const useCustomFetchStaff = () => {
     const {
         error: serverErrorStaff,
@@ -289,6 +311,8 @@ export {
     useCustomFetchMathematicsSchedule,
     useCustomFetchRomanianSchedule,
     useCustomFetchHeroCard,
+    useCustomFetchHomeworkCard,
+    useCustomFetchScheduleCard,
     useCustomFetchStaff,
     useCustomFetchStaffDetail,
     useCustomFetchClient,

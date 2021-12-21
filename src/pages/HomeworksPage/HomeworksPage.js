@@ -1,19 +1,23 @@
 import React, {useEffect, useRef, useState} from 'react'
-import { getUserInfoParse } from "../../utils/localStorage";
+import { getUserInfoParse } from "../../helpers/localStorage";
 import {
+    useCustomFetchHomeworkCard,
     useCustomFetchInformaticsGroups, useCustomFetchInformaticsHomework, useCustomFetchMathematicsGroups,
     useCustomFetchMathematicsHomework, useCustomFetchRomanianGroups, useCustomFetchRomanianHomework
-} from "../../utils/apiCalls";
-import getClientGroup from '../../utils/getClientGroup';
+} from "../../backendApi/apiCalls";
+import getClientGroup from '../../helpers/getClientGroup';
 import RenderHomeworks from "../../components/RenderHomeworks/RenderHomeworks";
 import HalfHeroCard from "../../components/HalfHeroCard/HalfHeroCard";
-import homeworks from './Images/homeworks.jpeg'
 import { Redirect } from "react-router-dom";
 import './Homeworks.css'
+import {appClassesMapping, pagesClassesMapping} from "../../helpers/classesMapping";
 
 function HomeworksPage() {
 
     const userInfo = getUserInfoParse();
+
+    const [homeworkCard, setHomeworkCard] = useState(null);
+    const { serverErrorHomeworkCard, apiDataHomeworkCard } = useCustomFetchHomeworkCard();
 
     const [informaticsGroups, setInformaticsGroups] = useState([]);
     const { serverErrorInformaticsGroups, apiDataInformaticsGroups } = useCustomFetchInformaticsGroups();
@@ -36,6 +40,11 @@ function HomeworksPage() {
     const userInformaticsGroup = useRef("");
     const userMathematicsGroup = useRef("");
     const userRomanianGroup = useRef("");
+
+    useEffect(() => {
+        if (apiDataHomeworkCard)
+            setHomeworkCard(apiDataHomeworkCard[Math.floor(Math.random() * apiDataHomeworkCard?.length)]);
+    }, [ apiDataHomeworkCard ])
 
     useEffect(() => {
         if (apiDataInformaticsGroups)
@@ -67,11 +76,11 @@ function HomeworksPage() {
             setUserHomeworkRomanian(apiDataRomanianHomework);
     }, [ apiDataRomanianHomework ])
 
-
     useEffect(() => {
 
         const serverErrors = () => {
-            return serverErrorInformaticsGroups ||
+            return serverErrorHomeworkCard ||
+                serverErrorInformaticsGroups ||
                 serverErrorMathematicsGroups ||
                 serverErrorRomanianGroups ||
                 serverErrorInformaticsHomework ||
@@ -81,13 +90,14 @@ function HomeworksPage() {
 
         if (serverErrors()) throw new Error("Fetch Error");
 
-    }, [serverErrorInformaticsGroups,
-             serverErrorMathematicsGroups,
-             serverErrorRomanianGroups,
-             serverErrorInformaticsHomework,
-             serverErrorMathematicsHomework,
-             serverErrorRomanianHomework,
-            ])
+    }, [serverErrorHomeworkCard,
+        serverErrorInformaticsGroups,
+        serverErrorMathematicsGroups,
+        serverErrorRomanianGroups,
+        serverErrorInformaticsHomework,
+        serverErrorMathematicsHomework,
+        serverErrorRomanianHomework
+        ])
 
     if (!userInfo)
         return <Redirect to="/login" />
@@ -98,18 +108,17 @@ function HomeworksPage() {
 
     return (
         <div>
-            <HalfHeroCard imageUrl = { homeworks } />
-            <div className="Homeworks">
+            <HalfHeroCard imageUrl = { homeworkCard?.image } />
+            <div className={ pagesClassesMapping.HomeworksPageClass }>
                 <h1>{ userInfo.user.first_name }, Aici sunt listate temele tale!</h1>
+                    <RenderHomeworks data = { userHomeworkInformatics } userGroup = { userInformaticsGroup }
+                                     classObject = { "Informatica" } />
+                    <RenderHomeworks data = { userHomeworkMathematics } userGroup = { userMathematicsGroup }
+                                     classObject = { "Matematica" } />
+                    <RenderHomeworks data = { userHomeworkRomanian } userGroup = { userRomanianGroup }
+                                     classObject = { "Romana" }/>
 
-                <RenderHomeworks data = { userHomeworkInformatics } userGroup = { userInformaticsGroup }
-                                 classObject = { "Informatica" } />
-                <RenderHomeworks data = { userHomeworkMathematics } userGroup = { userMathematicsGroup }
-                                 classObject = { "Matematica" } />
-                <RenderHomeworks data = { userHomeworkRomanian } userGroup = { userRomanianGroup }
-                                 classObject = { "Romana" }/>
-
-                <div className="SpaceForPhone"/>
+                <div className={ appClassesMapping.SpaceForPhoneClass }/>
             </div>
         </div>
     )
