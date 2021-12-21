@@ -4,8 +4,8 @@ const publicBackendApi = 'https://ptpcc.azurewebsites.net'
 
 const baseBackendUrls = [
     { url: publicInternIpBackendApi, enable: false },
-    { url: localBackendApi, enable: true },
-    { url: publicBackendApi, enable: false },
+    { url: localBackendApi, enable: false },
+    { url: publicBackendApi, enable: true },
 ];
 
 const getBaseBackendUrl = () => {
