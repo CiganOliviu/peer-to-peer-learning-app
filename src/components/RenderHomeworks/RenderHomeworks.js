@@ -5,21 +5,39 @@ import './RenderHomeworks.css';
 import { componentsClassesMapping } from "../../helpers/classesMapping";
 
 function SetValidHomework({ homework, classObject }) {
+
+    const NoneIndications = 'Nu sunt indicatii la aceasta tema';
+    const OptionalHomework = 'Tema este optionala';
+    const RequiredHomework = 'Tema este obligatorie';
+    const HelperFile = 'Descarca Fisier ajutator';
+    const NoneFile = '/MEDIA/None';
+    const Informatics = 'Informatica';
+    const Mathematics = 'Matematica';
+    const Romanian = 'Romana';
+    const Blue = '#008cff';
+    const Yellow = '#edb200';
+    const Red = '#f52516';
+    const None = 'None';
+
     return (
         <div className={ componentsClassesMapping.HomeworkClass } >
             <div className={ componentsClassesMapping.HomeworkBorderClass } />
             <h2>{ homework?.title }</h2>
             <div>&nbsp;</div>
-            <p>{ homework?.tips === "None" ? "Nu sunt indicatii la aceasta tema" : homework?.tips }</p>
+            <p>{ homework?.tips === None ? NoneIndications : homework?.tips }</p>
             <div>&nbsp;</div>
-            <p>{ homework?.optional === true ? "Tema este optionala" : "Tema este obligatorie"}</p>
+            <p>{ homework?.optional === true ? OptionalHomework : RequiredHomework }</p>
+            <div>&nbsp;</div>
+            <b><a href={ homework?.file !== NoneFile ? homework?.file : '' } download>
+                { homework?.file !== NoneFile ? HelperFile : '' }
+            </a></b>
             <div>&nbsp;</div>
             <p><b>Deadline</b>: { homework?.deadline_date } { homework?.deadline_hour }</p>
             <p><b>Postat la </b>: { homework?.posted_on }</p>
             <div>&nbsp;</div>
-            <p>{ classObject === 'Informatica' ?  <ShowSpecificButton classObject = { classObject } classObjectColor = { "#008cff" } /> : '' }</p>
-            <p>{ classObject === 'Matematica' ? <ShowSpecificButton classObject = { classObject } classObjectColor = { "#edb200" } /> : '' }</p>
-            <p>{ classObject === 'Romana' ? <ShowSpecificButton classObject = { classObject } classObjectColor = { "#f52516" } /> : '' }</p>
+            <p>{ classObject === Informatics ?  <ShowSpecificButton classObject = { classObject } classObjectColor = { Blue } /> : '' }</p>
+            <p>{ classObject === Mathematics ? <ShowSpecificButton classObject = { classObject } classObjectColor = { Yellow } /> : '' }</p>
+            <p>{ classObject === Romanian ? <ShowSpecificButton classObject = { classObject } classObjectColor = { Red } /> : '' }</p>
         </div>
     )
 }
