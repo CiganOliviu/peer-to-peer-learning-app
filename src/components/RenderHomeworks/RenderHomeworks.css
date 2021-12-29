@@ -2,6 +2,12 @@
     padding: 2%;
 }
 
+.Homework a {
+    color: #fff;
+    font-size: 18px;
+    text-decoration: none;
+}
+
 .Homework h2 {
     padding: 2%;
     color: red;
