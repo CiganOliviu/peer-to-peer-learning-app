@@ -3,6 +3,7 @@ import { getUserInfoParse } from "../../helpers/localStorage";
 import ShowSpecificButton from "../ShowSpecificButton/ShowSpecificButton";
 import './RenderHomeworks.css';
 import { componentsClassesMapping } from "../../helpers/classesMapping";
+import { apiBaseURL } from "../../backendApi/baseBackendUrl";
 
 function SetValidHomework({ homework, classObject }) {
 
@@ -19,6 +20,8 @@ function SetValidHomework({ homework, classObject }) {
     const Red = '#f52516';
     const None = 'None';
 
+    const fileDownloadUrl = `${apiBaseURL}${homework?.file}`;
+
     return (
         <div className={ componentsClassesMapping.HomeworkClass } >
             <div className={ componentsClassesMapping.HomeworkBorderClass } />
@@ -28,7 +31,7 @@ function SetValidHomework({ homework, classObject }) {
             <div>&nbsp;</div>
             <p>{ homework?.optional === true ? OptionalHomework : RequiredHomework }</p>
             <div>&nbsp;</div>
-            <b><a href={ homework?.file !== NoneFile ? homework?.file : '' } download>
+            <b><a href={ homework?.file !== NoneFile ? fileDownloadUrl : '' } download target='_blank'>
                 { homework?.file !== NoneFile ? HelperFile : '' }
             </a></b>
             <div>&nbsp;</div>
