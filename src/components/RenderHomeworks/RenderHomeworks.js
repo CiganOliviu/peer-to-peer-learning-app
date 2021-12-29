@@ -5,6 +5,22 @@ import './RenderHomeworks.css';
 import { componentsClassesMapping } from "../../helpers/classesMapping";
 import { apiBaseURL } from "../../backendApi/baseBackendUrl";
 
+function GetTipsPrettier({ rawData }) {
+
+    rawData.replace(/(?:\r\n|\r|\n)/g, '<br />');
+
+    return (
+        rawData.split('\n').map(function(item, key) {
+            return (
+                <span key={key}>
+                            <p>{ item }</p>
+                            <br/>
+                    </span>
+            )
+        })
+    )
+}
+
 function SetValidHomework({ homework, classObject }) {
 
     const NoneIndications = 'Nu sunt indicatii la aceasta tema';
@@ -27,7 +43,7 @@ function SetValidHomework({ homework, classObject }) {
             <div className={ componentsClassesMapping.HomeworkBorderClass } />
             <h2>{ homework?.title }</h2>
             <div>&nbsp;</div>
-            <p>{ homework?.tips === None ? NoneIndications : homework?.tips }</p>
+            <p>{ homework?.tips === None ? NoneIndications : <GetTipsPrettier rawData={ homework?.tips } /> }</p>
             <div>&nbsp;</div>
             <p>{ homework?.optional === true ? OptionalHomework : RequiredHomework }</p>
             <div>&nbsp;</div>
