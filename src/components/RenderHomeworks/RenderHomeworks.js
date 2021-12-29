@@ -47,7 +47,8 @@ function SetValidHomework({ homework, classObject }) {
             <div>&nbsp;</div>
             <p>{ homework?.optional === true ? OptionalHomework : RequiredHomework }</p>
             <div>&nbsp;</div>
-            <b><a href={ homework?.file !== NoneFile ? fileDownloadUrl : '' } download target='_blank'>
+            <b><a href={ homework?.file !== NoneFile ? fileDownloadUrl : '' } target='_blank' rel="noreferrer"
+                  download >
                 { homework?.file !== NoneFile ? HelperFile : '' }
             </a></b>
             <div>&nbsp;</div>
