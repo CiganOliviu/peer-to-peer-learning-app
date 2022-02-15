@@ -6,7 +6,7 @@ const baseInformaticsURL = `${apiBaseURL}/informatics`;
 const baseLoginURL = `${apiBaseURL}/details/login/`;
 const baseContactURL = `${apiBaseURL}/contact`;
 const baseStatsURL = `${apiBaseURL}/stats`;
-const BaseAPIDependencies = `${apiBaseURL}/app-dependencies`;
+const BaseAPIDependencies = `${apiBaseURL}/app-layout`;
 
 const requests = {
 
