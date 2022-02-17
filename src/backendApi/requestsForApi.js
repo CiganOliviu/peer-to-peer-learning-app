@@ -22,6 +22,7 @@ const requests = {
     fetchHeroCardDetails: `${BaseAPIDependencies}/hero-card`,
     fetchHomeworkCardDetails: `${BaseAPIDependencies}/homework-card`,
     fetchScheduleCardDetails: `${BaseAPIDependencies}/schedule-card`,
+    fetchHomeContentDetails: `${BaseAPIDependencies}/home-content`,
     fetchStaff: `${baseStatsURL}/staff`,
     fetchStaffDetail: `${baseStatsURL}/staff/`,
     fetchClient: `${baseStatsURL}/client`,

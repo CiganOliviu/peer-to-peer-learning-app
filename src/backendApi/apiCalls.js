@@ -134,6 +134,17 @@ const useCustomFetchScheduleCard = () => {
 };
 
 
+const useCustomFetchHomeContent= () => {
+    const {
+        error: serverErrorHomeContent,
+        data: apiDataHomeContent,
+        isLoading: isLoadingHomeContent,
+    } = useCustomFetch(requests.fetchHomeContentDetails);
+
+    return { isLoadingHomeContent, serverErrorHomeContent, apiDataHomeContent };
+};
+
+
 const useCustomFetchStaff = () => {
     const {
         error: serverErrorStaff,
@@ -313,6 +324,7 @@ export {
     useCustomFetchHeroCard,
     useCustomFetchHomeworkCard,
     useCustomFetchScheduleCard,
+    useCustomFetchHomeContent,
     useCustomFetchStaff,
     useCustomFetchStaffDetail,
     useCustomFetchClient,

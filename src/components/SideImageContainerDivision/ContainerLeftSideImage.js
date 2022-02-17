@@ -1,18 +1,21 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import './SideImageContainerDivision.css'
-import {
-    OnlineFirstContainer,
-    OnlineSecondContainer,
-    OnlineThirdContainer,
-    OnlineTitle,
-    OnlineWhyReasonFour,
-    OnlineWhyReasonOne,
-    OnlineWhyReasonThree,
-    OnlineWhyReasonTwo
-} from "../../helpers/setHomePageContent";
 import { appClassesMapping } from "../../helpers/classesMapping";
+import { useCustomFetchHomeContent } from "../../backendApi/apiCalls";
 
 function ContainerLeftSideImage({ iphone }) {
+
+    const [homeContent, setHomeContent] = useState(null);
+    const { serverErrorHomeContent, apiDataHomeContent } = useCustomFetchHomeContent();
+
+    useEffect(() => {
+        if (apiDataHomeContent)
+            setHomeContent(apiDataHomeContent[0]);
+    }, [apiDataHomeContent])
+
+    useEffect(() => {
+        if (serverErrorHomeContent) throw new Error("Fetch Error");
+    }, [serverErrorHomeContent])
 
     return (
         <div className={ appClassesMapping.FlexContainerClass } style={{ overflowX: 'hidden', alignItems: 'center', justifyContent: 'center' }}>
@@ -26,25 +29,17 @@ function ContainerLeftSideImage({ iphone }) {
             </div>
 
             <div data-aos="fade-left" className="FlexChild Text">
-                <h2><b>{ OnlineTitle }</b></h2>
+                <h2><b>{ homeContent?.section_one_title_content.title }</b></h2>
                 <div>&nbsp;</div>
-                <p>
-                    { OnlineFirstContainer }
-                </p>
-                <br/>
-                <p>
-                    { OnlineSecondContainer }
-                </p>
-                <br/>
-                <p>
-                    { OnlineThirdContainer }
-                </p>
-                <ul style={{ padding: '3%' }}>
-                    <li>{ OnlineWhyReasonOne }</li>
-                    <li>{ OnlineWhyReasonTwo }</li>
-                    <li>{ OnlineWhyReasonThree }</li>
-                    <li>{ OnlineWhyReasonFour }</li>
-                </ul>
+                {
+                    homeContent?.section_one_title_content?.content.split('\n').map(function(item, key) {
+                        return (
+                            <span key={key}>
+                                <p style={{ marginBottom: '1rem', }}>{ item }</p>
+                        </span>
+                        )
+                    })
+                }
             </div>
         </div>
     )

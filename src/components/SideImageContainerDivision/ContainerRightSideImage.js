@@ -1,40 +1,37 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import './SideImageContainerDivision.css'
-import {
-    NewNormFirstContainer,
-    NewNormSecondContainer,
-    NewNormTitle,
-    NewNormWhyReasonFive,
-    NewNormWhyReasonFour,
-    NewNormWhyReasonOne,
-    NewNormWhyReasonThree,
-    NewNormWhyReasonTwo
-} from "../../helpers/setHomePageContent";
 import { appClassesMapping } from "../../helpers/classesMapping";
+import {useCustomFetchHomeContent} from "../../backendApi/apiCalls";
 
 function ContainerLeftSideImage({ mac }) {
+
+    const [homeContent, setHomeContent] = useState(null);
+    const { serverErrorHomeContent, apiDataHomeContent } = useCustomFetchHomeContent();
+
+    useEffect(() => {
+        if (apiDataHomeContent)
+            setHomeContent(apiDataHomeContent[0]);
+    }, [apiDataHomeContent])
+
+    useEffect(() => {
+        if (serverErrorHomeContent) throw new Error("Fetch Error");
+    }, [serverErrorHomeContent])
 
     return (
         <div className={ appClassesMapping.FlexContainerClass } style={{ overflowX: 'hidden', alignItems: 'center', justifyContent: 'center' }}>
 
             <div data-aos="fade-right" className="FlexChild Text">
-                <h2><b>{ NewNormTitle }</b></h2>
+                <h2><b>{ homeContent?.section_two_title_content.title }</b></h2>
                 <div>&nbsp;</div>
-                <p>
-                    { NewNormFirstContainer }
-                </p>
-                <br/>
-                <p>
-                    { NewNormSecondContainer }
-                </p>
-                <br/>
-                <ul style={{ padding: '3%' }}>
-                    <li>{ NewNormWhyReasonOne }</li>
-                    <li>{ NewNormWhyReasonTwo }</li>
-                    <li>{ NewNormWhyReasonThree }</li>
-                    <li>{ NewNormWhyReasonFour }</li>
-                    <li>{ NewNormWhyReasonFive }</li>
-                </ul>
+                {
+                    homeContent?.section_two_title_content?.content.split('\n').map(function(item, key) {
+                        return (
+                            <span key={key}>
+                                <p style={{ marginBottom: '1rem', }}>{ item }</p>
+                        </span>
+                        )
+                    })
+                }
             </div>
 
             <div data-aos="fade-left" className="FlexChild Image">
