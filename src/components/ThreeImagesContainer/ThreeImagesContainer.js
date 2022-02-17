@@ -4,14 +4,9 @@ import { appClassesMapping } from "../../helpers/classesMapping";
 import { useCustomFetchHomeContent } from "../../backendApi/apiCalls";
 import {apiBaseURL} from "../../backendApi/baseBackendUrl";
 
-function ThreeImagesContainer({ imageLeft, imageCenter, imageRight,
-                                titleLeft, titleCenter, titleRight,
-                                contentLeft, contentCenter, contentRight,
-                              }) {
+function ThreeImagesContainer() {
 
     const [homeContentImages, setHomeContentImages] = useState(null);
-    const [errorHomeContentImages, setErrorHomeContentImages] = useState(null);
-
     const { serverErrorHomeContent, apiDataHomeContent } = useCustomFetchHomeContent();
 
     useEffect(() => {
@@ -20,9 +15,8 @@ function ThreeImagesContainer({ imageLeft, imageCenter, imageRight,
     }, [apiDataHomeContent])
 
     useEffect(() => {
-        if (errorHomeContentImages)
-            setErrorHomeContentImages(serverErrorHomeContent);
-    }, [errorHomeContentImages])
+        if (serverErrorHomeContent) throw new Error("Fetch Error");
+    }, [serverErrorHomeContent])
 
     return (
         <div className={ appClassesMapping.FlexContainerClass } style={{ overflowX: 'hidden', }}>

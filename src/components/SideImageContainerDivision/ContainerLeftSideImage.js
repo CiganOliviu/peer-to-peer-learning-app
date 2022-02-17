@@ -1,23 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import './SideImageContainerDivision.css'
-import {
-    OnlineFirstContainer,
-    OnlineSecondContainer,
-    OnlineThirdContainer,
-    OnlineTitle,
-    OnlineWhyReasonFour,
-    OnlineWhyReasonOne,
-    OnlineWhyReasonThree,
-    OnlineWhyReasonTwo
-} from "../../helpers/setHomePageContent";
 import { appClassesMapping } from "../../helpers/classesMapping";
 import { useCustomFetchHomeContent } from "../../backendApi/apiCalls";
 
 function ContainerLeftSideImage({ iphone }) {
 
     const [homeContent, setHomeContent] = useState(null);
-    const [errorHomeContent, setErrorHomeContent] = useState(null);
-
     const { serverErrorHomeContent, apiDataHomeContent } = useCustomFetchHomeContent();
 
     useEffect(() => {
@@ -26,9 +14,8 @@ function ContainerLeftSideImage({ iphone }) {
     }, [apiDataHomeContent])
 
     useEffect(() => {
-        if (errorHomeContent)
-            setErrorHomeContent(serverErrorHomeContent);
-    }, [errorHomeContent])
+        if (serverErrorHomeContent) throw new Error("Fetch Error");
+    }, [serverErrorHomeContent])
 
     return (
         <div className={ appClassesMapping.FlexContainerClass } style={{ overflowX: 'hidden', alignItems: 'center', justifyContent: 'center' }}>
